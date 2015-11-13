@@ -1,0 +1,43 @@
+body{
+	width: 90%;
+	font-family: sans-serif;
+	margin: 0 auto;
+	padding: 0;
+
+}
+body>p{
+	text-align: left;
+}
+table{
+	border: solid 1px black;
+	width: 100%;
+	text-align: center;
+}
+img{
+	width: 100px;
+	height: 100px;
+
+}
+div > p{
+	width: 49%;
+	display: inline-block;
+}
+#datos-grain{
+	text-align: left;
+	font-size: 1em;
+}
+#logo-pdf{
+	width: 50%;
+	
+}
+
+#web{
+	margin-top: 50px;
+	font-size: .75em;
+	text-align: center;
+}
+
+#firma{
+	width: 100%;
+	height: 200px;
+}

@@ -1,0 +1,46 @@
+@extends('plantillas.main')
+@section('content')
+<section id="about">
+	
+	<div id="about" class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2 class="section-heading">Sobre nosotros</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="timeline">
+					<li>
+						<div class="timeline-image">
+							<img class="img-circulo "src="img/landing/granos.jpg" alt="">
+						</div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h4>Misión</h4>
+							</div>
+							<div class="timeline-body">
+								<p class="text-muted">Proveer a nuestros clientes con productos y servicios de primera calidad nacional e internacional a precios altamente competitivos, a través de nuestra excelencia operativa e innovación tecnológica, fundamentados en la entrega y pasión del mejor y más motivado equipo humano.</p>
+							</div>
+						</div>
+					</li>
+					<li class="timeline-inverted">
+						<div class="timeline-image">
+							<img class="img-circulo "src="img/landing/manos.jpg">
+						</div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h4>Visión</h4>
+							</div>
+							<div class="timeline-body">
+								<p class="text-muted color-white">Convertir a agrícola <strong>Grain</strong> en una empresa referente, no sólo en México sino en el mundo, proveyendo productos de máxima calidad y brindando un servicio de excelencia mediante el desarrollo y promoción de los aspectos tecnológicos.</p>
+							</div>
+						</div>
+					</li>
+					
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+@stop
