@@ -1,0 +1,29 @@
+
+<?php $__env->startSection('content'); ?>
+
+<section>
+	<div class="container">
+		<div class='info-bodega'>
+			<img src="<?php echo asset('img/'.$bodega['foto']); ?>" class="showbodegaimg">
+		</div>
+		<div class="info-bodega">
+			<h2><?php echo e($bodega['nombre']); ?> </h2>
+			Largo <?php echo e($bodega['largo']); ?>m, Ancho <?php echo e($bodega['ancho']); ?>m, Alto <?php echo e($bodega['alto']); ?>m
+			<br>
+			Dirección: <?php echo e($bodega['direccion']); ?>,<?php echo e($bodega['colonia']); ?>,
+			<?php echo e($bodega['ciudad']['ciudad']); ?>, <?php echo e($bodega['ciudad']['estado']['estado']); ?>, <?php echo e($bodega['ciudad']['estado']['pais']['pais']); ?>
+
+			<br>
+			<p>
+				<?php echo e($bodega['comentarios']); ?>
+
+			</p>
+			Precio: $<?php echo e($bodega['precio']); ?> pesos mexicanos.
+			<br>
+			<button class="btn btn-warning">RENTAR</button>
+		</div>	
+		
+	</div>
+</section>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('plantillas.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Agricola - Grain</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<?php echo Html::style('https://fonts.googleapis.com/css?family=Roboto'); ?>
+
+	<?php echo Html::style('assets/css/bootstrap.css'); ?>
+
+	<?php echo Html::style('css/estilos.css'); ?>
+
+	<?php echo Html::style('css/agency.css'); ?>
+
+	<?php echo Html::style('assets/font-awesome/css/font-awesome.min.css'); ?>
+
+</head>
+<body id="page-top" class="index">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header page-scroll">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand page-scroll" href="/"><img src="/img/landing/grain.png" alt="" style="width:17%; heigth:50%;"></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="hidden">
+						<a href="/"></a>
+					</li>
+					<li>
+						<a href="/" class="page-scroll">Inicio</a>
+					</li>
+					<li>
+						<a href="/catBodegas">Bodegas</a>
+					</li>
+                    <li>
+                      	<a href="/about">Sobre nosotros</a>
+                     </li>
+                        <li>
+                        	<a href="/contacto">Contacto</a>
+                        </li>
+                        <?php if(!Auth::check()): ?>
+                        <li>
+                        	<a data-toggle="modal" href="#myModal">Login</a>
+                        </li>
+                        <?php endif; ?>
+                        <li>
+                        	<?php if(Auth::check()): ?>
+                        	<?php echo Auth::user()->nombre; ?> <?php echo Auth::user()->id; ?>
+
+                        	<a href="logout">Cerrar Sesión</a>
+                        	<?php endif; ?>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+            <?php echo $__env->make('alertas.error', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('alertas.request', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        </nav>
+	<div >
+		<?php echo $__env->yieldContent('content'); ?>
+	</div>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<span class="copyright">Copyright &copy; Agrícola Grain 2015</span>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-inline social-buttons">
+						<li><a href="#"><i class="fa fa-twitter"></i></a>
+						</li>
+						<li><a href="#"><i class="fa fa-facebook"></i></a>
+						</li>
+						<li><a href="#"><i class="fa fa-linkedin"></i></a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-inline quicklinks">
+						<li><a href="#">Politicas de privacidad</a>
+						</li>
+						<li><a href="#">Términos de uso</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Modal -->
+<div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<br>
+			<div class="bs-example bs-example-tabs">
+				<ul id="myTab" class="nav nav-tabs">
+					<li class="active"><a href="#signin" data-toggle="tab">Entrar</a></li>
+					<li class=""><a href="#signup" data-toggle="tab">Registro</a></li>
+					<li class=""><a href="#why" data-toggle="tab">Why?</a></li>
+				</ul>
+			</div>
+			<div class="modal-body">
+				<div id="myTabContent" class="tab-content">
+					<div class="tab-pane fade in" id="why">
+						<p>Necesitamos esta información para que tengas acceso al sitio y su contenido. Puedes estar seguro de que tu información no será vendida, cambiada o dada a terceros.</p>
+						<p></p><br> Por favor contáctanos <a mailto:href="contacto@grain.com"></a>Contacto@grain.com</a> para cualquier duda.</p>
+					</div>
+					<div class="tab-pane fade active in" id="signin">
+						
+						<?php echo Form::open(['route'=>'Log.store','method'=>'POST','id'=>'login','class'=>'form-horizontal']); ?>
+
+						<fieldset>
+							<!-- Sign In Form -->
+							<!-- Text input-->
+							<div class="control-group">
+								<label class="control-label" for="userid">Email:</label>
+								<div class="controls">
+									<?php echo Form::email('email',null,['class'=>'form-control']); ?>
+
+								</div>
+							</div>
+
+							<!-- Password input-->
+							<div class="control-group">
+								<label class="control-label" for="passwordinput">Contraseña:</label>
+								<div class="controls">
+									<?php echo Form::password('password',['class'=>'form-control']); ?>
+
+								</div>
+							</div>
+
+							<!-- Button -->
+							<div class="control-group">
+								<label class="control-label" for="signin"></label>
+								<div class="controls">
+									<?php echo Form::submit('Entrar',['class'=>'btn btn-primary']); ?> 
+								</div>
+							</div>
+						</fieldset>
+						<?php echo Form::close(); ?>
+
+					</div>
+					<div class="tab-pane fade" id="signup">
+					<?php echo Form::open(['route' => 'user.store','method'=>'POST']); ?>
+
+						<?php echo $__env->make("usuario.forms.user", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+						<?php echo Form::submit("Guardar ", ['class' => 'btn btn-success btn-block ']); ?>
+
+					<?php echo Form::close(); ?>
+
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<center>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				</center>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<?php echo Html::script('js/jquery.js'); ?>
+
+	<?php echo Html::script('js/eventos.js'); ?>
+
+	<?php echo Html::script('js/bootstrap.min.js'); ?>
+
+	<?php echo Html::script('js/classie.js'); ?>
+
+	<?php echo Html::script('js/cbpAnimatedHeader.js'); ?>
+
+	<?php echo Html::script('js/jqBootstrapValidation.js'); ?>
+
+	<?php echo Html::script('js/agency.js'); ?>
+
+	<?php echo Html::script('js/contact_me.js'); ?>
+
+</body>
+</html>

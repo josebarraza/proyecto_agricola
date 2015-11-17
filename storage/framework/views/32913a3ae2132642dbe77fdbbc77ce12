@@ -1,0 +1,25 @@
+<?php $__env->startSection('content'); ?>
+	<div id="form-fotos">
+		<?php echo Form::open(['route'=>'foto.store','files'=>true]); ?>
+
+			<div class="form-group">
+				<?php echo Form::label('lblbodega','Bodega:'); ?>
+
+				<?php echo Form::select('id_bodega',$bodegas,null,['class'=>'form-control']); ?>
+
+			</div>
+			<?php echo Form::label('lblfoto', 'Fotos:'); ?> 
+			<div id="div-files">
+					<?php echo Form::file('foto[]',['class'=>'mt']); ?>
+
+			</div>
+			<a id="btn-add-otra" class="btn btn-primary mt">Agregar otra</a>
+			<?php echo Form::submit("Guardar", ['class' => 'btn btn-success btn-block mt']); ?>
+
+		<?php echo Form::close(); ?>
+
+	</div>
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('plantillas.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

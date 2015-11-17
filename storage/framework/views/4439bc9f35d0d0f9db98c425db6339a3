@@ -1,0 +1,5 @@
+<?php if(Session::has('message')): ?>
+		<div  class="alert alert-danger">
+  			<strong><?php echo Session::get('message'); ?></strong> 
+		</div>
+<?php endif; ?>

@@ -1,0 +1,12 @@
+<?php $__env->startSection('content'); ?>
+<header>
+	<div class="container">
+		<div class="intro-text">
+			<div class="intro-lead-in">Bienvenido a nuestro sitio</div>
+			<div class="intro-heading">Explora nuestros servicios</div>
+			<a href="/catBodegas" class="page-scroll btn btn-xl">Renta de Bodegas</a>
+		</div>
+	</div>
+</header>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('plantillas.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

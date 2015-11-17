@@ -1,0 +1,50 @@
+<?php $__env->startSection('content'); ?>
+<?php echo $__env->make('alertas.exito', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<div class="panel panel-default lista-recursos">
+  	<div class="panel-heading centrar-texto">
+  		<strong>Mensajes </strong>
+  	</div>
+	<table  class="table tabla-recursos">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Correo</th>
+				<th>Celular</th>
+				<th>Mensaje</th>
+				<th>Operación</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach($mensajes as $msg): ?>
+			<tr>
+				<td>
+					<?php echo e($msg->nombre); ?>
+
+				</td>
+				<td>
+					<?php echo e($msg->correo); ?>
+
+				</td>
+				<td>
+					<?php echo e($msg->celular); ?>
+
+				</td>
+				<td>
+					<?php echo e($msg->mensaje); ?>
+
+				</td>
+				<td>
+					<?php echo Form::open(['route' => ['mensajes.destroy',$msg->id],'method' => 'DELETE']); ?>
+
+						<?php echo Form::submit('Eliminar',['class' => 'btn btn-danger btn-block']); ?>
+
+					<?php echo Form::close(); ?>
+
+				</td>
+			</tr>
+		<?php endforeach; ?>
+		</tbody>
+	</table>
+</div>	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('plantillas.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

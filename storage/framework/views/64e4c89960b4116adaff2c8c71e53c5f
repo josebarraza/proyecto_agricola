@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Renta exitosa</title>
+</head>
+<body>
+	<h1>Renta #<?php echo $datos['uno']; ?></h1>
+	<h2>Tambien imprime el #<?php echo $datos['dos']; ?></h2>
+	<h3><?php echo $fecha; ?></h3>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?php $__env->startSection('content'); ?>
+	
+	<div class="form-bodega">
+		<span class="letra-grande">Edición de bodegas</span>
+		<?php echo Form::model($bodega,['route' => ['bodega.update',$bodega->id],'method'=>'PUT','files'=>true]); ?>
+
+			<?php echo $__env->make('bodega.forms.bodega',$paises, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>;
+			<?php echo Form::submit("Guardar", ['class' => 'btn btn-primary btn-block mt']); ?>
+
+		<?php echo Form::close(); ?>
+
+		<?php echo Form::open(['route' => ['bodega.destroy',$bodega->id],'method' => 'DELETE']); ?>
+
+			<?php echo Form::submit('Eliminar',['class' => 'btn btn-danger btn-block']); ?>
+
+		<?php echo Form::close(); ?>
+
+	</div>
+	<?php echo $__env->make('alertas.request', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('plantillas.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

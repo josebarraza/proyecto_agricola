@@ -1,0 +1,22 @@
+<?php $__env->startSection('content'); ?>
+	<div class="form-user">
+		<span class="letra-grande ">Edición de usuario</span>
+		<?php echo Form::model($user,['route' => ['user.update',$user->id],'method'=>'PUT','files' => true]); ?>
+
+	    	<?php echo $__env->make('Usuario.forms.user', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	        <?php echo Form::submit('Actualizar', ['class' => 'btn btn-success btn-block']); ?>
+
+		<?php echo Form::close(); ?>
+
+
+		<?php echo Form::open(['route' => ['user.destroy',$user->id],'method' => 'DELETE']); ?>
+
+			<?php echo Form::submit('Eliminar',['class' => 'btn btn-danger btn-block']); ?>
+
+		<?php echo Form::close(); ?>
+
+	</div>
+	<?php echo $__env->make('alertas.request', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('plantillas.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

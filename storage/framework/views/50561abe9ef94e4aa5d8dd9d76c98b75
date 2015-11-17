@@ -1,0 +1,57 @@
+<?php $__env->startSection('content'); ?>
+	<style>
+		.img-bodega{
+			width: 150px;
+			height: 150px;
+			border-radius: 5%;
+			
+		}
+		
+		
+	</style>
+
+	<?php echo $__env->make('alertas.exito', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<div class="panel panel-default lista-recursos">
+  	<div class="panel-heading centrar-texto">
+  		<span ><strong>Lista de bodegas</strong></span>
+  	</div>
+	<table  class="table tabla-recursos">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Ancho, Largo, Alto</th>
+				<th>Ubicación</th>
+				<th>Precio</th>
+				<th>Estatus</th>
+				<th>Comentarios</th>
+				<th>Foto</th>
+				<th>Acción</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach($bodegas as $bodega): ?>
+			<tr>
+				<td><?php echo $bodega->nombre; ?> </td>
+				<td><?php echo $bodega->ancho; ?>mts - <?php echo $bodega->largo; ?>mts - <?php echo $bodega->alto; ?>mts</td>
+				<td ><?php echo $bodega->direccion; ?><br>Col. <?php echo $bodega->colonia; ?><br><?php echo $bodega->ciudad['ciudad']; ?><br><?php echo $bodega->ciudad->estado['estado']; ?><br><?php echo $bodega->ciudad->estado->pais['pais']; ?></td>
+				<td ><?php echo $bodega->precio; ?> pesos</td>
+				 <?php if($bodega->status == 1): ?>
+					<td>Disponible</td>
+				 <?php else: ?>
+				 	<td>Rentada</td>	
+				 <?php endif; ?>
+				 <td><?php echo $bodega->comentarios; ?></td>
+				 <td><img src="<?php echo asset('img/'.$bodega->foto); ?>" class="img-bodega"></td>
+				
+				<td><?php echo link_to_route('bodega.edit' , $title = 'Editar' , $parameters = $bodega->id, $attributes = ['class' => 'btn btn-primary']); ?></td>
+			</tr>
+		<?php endforeach; ?>
+		</tbody>
+	</table>
+</div>	
+	<?php echo $bodegas; ?>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('plantillas.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,32 @@
+<?php $__env->startSection('content'); ?>
+
+<div class="row">
+	<?php foreach($bodegas as $bodega): ?>
+	  <div class="col-sm-6 col-md-3">
+	    <div class="thumbnail">
+	      <img src="<?php echo asset('img/'.$bodega->foto); ?>" style="height:200px" class="imgthumbs">
+	      <div class="caption">
+	        <h3><?php echo e($bodega -> nombre); ?></h3>
+	        <p>
+				Largo <?php echo e($bodega -> largo); ?>m, Ancho <?php echo e($bodega -> ancho); ?>m, Alto <?php echo e($bodega -> alto); ?>m 
+				<br>
+				Dirección: <?php echo e($bodega -> ciudad['ciudad']); ?>, <?php echo e($bodega -> ciudad->estado['estado']); ?>,
+				<?php echo e($bodega -> ciudad-> estado-> pais['pais']); ?>
+
+
+	        </p>
+	        <div class='thumbs-botones'>
+	        	<?php echo link_to_route('catBodegas.show' , $title = 'Ver Más' , $parameters = $bodega->id, $attributes = ['class' => 'btn btn-primary']); ?>
+
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	<?php endforeach; ?>
+	</div>
+	<?php echo $bodegas -> render(); ?>
+
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('plantillas.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

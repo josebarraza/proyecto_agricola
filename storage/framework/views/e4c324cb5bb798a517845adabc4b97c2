@@ -1,0 +1,6 @@
+<?php $__env->startSection('content'); ?>
+	<h1 class="centrar-texto">Bienvenido al panel de administración</h1>
+	<h3 class="centrar-texto mt">Tienes <a href="/mensajes"><?php echo e($mensajes); ?> mensajes</a>.</h3>
+		
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('plantillas.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,40 @@
+
+<?php $__env->startSection('content'); ?>
+
+<?php echo $__env->make('alertas.exito', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<div class="panel panel-default lista-recursos">
+  	<div class="panel-heading centrar-texto">
+  		<strong>Lista de usuarios</strong>
+  	</div>
+	<table  class="table tabla-recursos">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Correo</th>
+				<th>Tipo de usuario</th>
+				<th>Operaciones</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach($users as $user): ?>
+			<tr>
+				<td><?php echo e($user -> nombre); ?> <?php echo e($user -> apellido_pat); ?> <?php echo e($user -> apellido_mat); ?></td>
+				<td><?php echo e($user -> email); ?></td>
+				<?php if($user->tipo == 1): ?>
+					<td>Cliente</td>
+				<?php else: ?>
+					<td>Administrador</td>
+				<?php endif; ?>		
+				<td><?php echo link_to_route('user.edit' , $title = 'Editar' , $parameters = $user->id, $attributes = ['class' => 'btn btn-primary']); ?></td>
+			</tr>
+		<?php endforeach; ?>
+		</tbody>
+	</table>
+</div>	
+	<?php echo $users; ?>
+
+
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('plantillas.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

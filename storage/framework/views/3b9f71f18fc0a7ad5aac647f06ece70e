@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Agricola - Grain</title>
+	<?php echo Html::style('https://fonts.googleapis.com/css?family=Roboto'); ?>
+
+	<?php echo Html::style('assets/css/bootstrap.css'); ?>
+
+	<?php echo Html::style('css/estilos.css'); ?>
+
+</head>
+<body>
+	<?php echo $__env->make('alertas.error', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->make('alertas.request', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<h1>Welcome to <span class="verde-grain">grain</span>.
+	</h1>
+	<h2>
+		<?php if(Auth::check()): ?>
+			<?php echo Auth::user()->nombre; ?> <?php echo Auth::user()->id; ?>
+
+			<a href="logout">Cerrar Sesión</a>
+		<?php endif; ?>
+	</h2>
+	<nav>
+		<ul>
+			<li ><a class="btn btn-primary" href="/">Inicio</a></li>
+			<li><a class="btn btn-primary" href="/catBodegas" class="btn btn-default">Bodegas</a></li>
+			<li><a class="btn btn-primary" href="/contacto" class="btn btn-default">Contacto</a></li>
+		</ul>
+		
+		<?php if(!Auth::check()): ?>
+			<?php echo Form::open(['route'=>'Log.store','method'=>'POST']); ?>
+
+				<div class="form-inline">
+					<?php echo Form::label('Email:'); ?>
+
+					<?php echo Form::text('email'); ?>
+
+					<?php echo Form::label('Contraseña:'); ?>
+
+					<?php echo Form::password('password'); ?>
+
+					<?php echo Form::submit('Entrar',['class'=>'btn btn-primary']); ?> 
+				</div>
+			<?php echo Form::close(); ?>
+
+		<?php endif; ?>
+		
+
+	</nav>
+	<div id="contenido">
+		<?php echo $__env->yieldContent('content'); ?>
+	</div>
+
+	<?php echo Html::script('js/jquery.js'); ?>
+
+	<?php echo Html::script('js/eventos.js'); ?>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?php $__env->startSection('content'); ?>
+	<div id="form-user">
+		<?php echo Form::open(['route' => 'user.store', 'method'=>'POST']); ?>
+
+	    <!-- Nombre -->
+	    <div class="form-group">
+	        <?php echo Form::label('lblname', 'Nombre:'); ?>
+
+	        <?php echo Form::text('name', null, ['class' => 'form-control']); ?>
+
+	    </div>
+	    <!-- apellido paterno -->
+	    <div class="form-group">
+	        <?php echo Form::label('lblpat', 'Apellido Paterno:'); ?>
+
+	        <?php echo Form::text('ape_pat', null, ['class' => 'form-control']); ?>
+
+	    </div>
+	    <!-- apellido materno -->
+	    <div class="form-group">
+	        <?php echo Form::label('lblmat', 'Apellido Materno:'); ?>
+
+	        <?php echo Form::text('ape_mat', null, ['class' => 'form-control']); ?>
+
+	    </div>
+	    <!-- email -->
+	    <div class="form-group">
+	        <?php echo Form::label('lblmat', 'Email:'); ?>
+
+	        <?php echo Form::text('email', null, ['class' => 'form-control','placeholder'=>'ejemplo@gmail.com']); ?>
+
+	    </div>
+	    <!-- password -->
+	    <div class="form-group">
+	        <?php echo Form::label('lblmat', 'Email:'); ?>
+
+	        <?php echo Form::password('password',  ['class' => 'form-control']); ?>
+
+	    </div>
+	        <?php echo Form::submit('Guardar', ['class' => 'btn btn-success btn-block']); ?>
+
+		<?php echo Form::close(); ?>
+
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('plantillas.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,22 @@
+
+<?php $__env->startSection('content'); ?>
+	<div class="form-user">
+		<span class="letra-grande ">Registro de Usuarios</span>
+		<?php echo Form::open(['route' => 'user.store','method'=>'POST']); ?>
+
+	    	<?php echo $__env->make('usuario.forms.user', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	    	<div class="form-group">
+	    	<?php echo Form::label('Tipo de usuario:'); ?> <br>
+	    	<label class="radio-inline"><input checked="checked" type="radio" value='2' name="tipo">Administrador</label>
+			<label class="radio-inline"><input type="radio" value='1' name="tipo">Cliente</label>
+	    </div>
+	        <?php echo Form::submit("Guardar ", ['class' => 'btn btn-success btn-block ']); ?>
+
+		<?php echo Form::close(); ?>
+
+	
+	<?php echo $__env->make('alertas.request', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('plantillas.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

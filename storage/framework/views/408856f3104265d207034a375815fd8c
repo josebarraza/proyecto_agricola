@@ -1,0 +1,51 @@
+
+<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header page-scroll">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand page-scroll" href="#page-top"><img src="/img/landing/grain.png" alt="" style="width:17%; heigth:50%;"></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="hidden">
+						<a href="#page-top"></a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#services">Inicio</a>
+					</li>
+                        <!-- <li>
+                            <a class="page-scroll" href="#portfolio">Catálogo</a>
+                        </li> -->
+                        <li>
+                        	<a class="page-scroll" href="#about">Bodegas</a>
+                        </li>
+                      <!--   <li>
+                            <a class="page-scroll" href="#team">Team</a>
+                        </li> -->
+                        <li>
+                        	<a class="page-scroll" href="#contact">Productos</a>
+                        </li>
+                        <li>
+                        	<?php if(Auth::check()): ?>
+                        	<?php echo Auth::user()->nombre; ?>
+
+                        	<a href="logout">Cerrar Sesión</a>
+                        	<?php endif; ?>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+            <?php echo $__env->make('alertas.error', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('alertas.request', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        </nav>
+        <?php echo $__env->yieldContent("content"); ?>
