@@ -45,10 +45,11 @@
 				<?php echo e($bodega->comentarios); ?>
 
 			</p>
-			Precio: $<?php echo e($bodega->precio); ?> MXN.
+			Precio: $<?php echo e(number_format($bodega->precio)); ?>.MXN
 			<br>
 			<br>
 			<br>
+			<a href="/pdf/<?php echo $bodega->id; ?>" class="btn btn-info">Descargar PDF</a>
 			<?php if(Auth::check() && $bodega->status == 1): ?>
 				<?php echo link_to_route('catBodegas.edit',$titulo='Rentar',$parameters=$bodega->id,$attributes = ['class'=>'btn btn-danger btn-rentar']); ?>
 

@@ -44,10 +44,11 @@
 				Comentarios:
 				{{$bodega->comentarios}}
 			</p>
-			Precio: ${{$bodega->precio}} MXN.
+			Precio: ${{number_format($bodega->precio)}}.MXN
 			<br>
 			<br>
 			<br>
+			<a href="/pdf/{!!$bodega->id!!}" class="btn btn-info">Descargar PDF</a>
 			@if(Auth::check() && $bodega->status == 1)
 				{!!link_to_route('catBodegas.edit',$titulo='Rentar',$parameters=$bodega->id,$attributes = ['class'=>'btn btn-danger btn-rentar'])!!}
 			@elseif(!Auth::check())

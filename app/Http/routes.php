@@ -27,7 +27,7 @@ Route::resource('logout','LoginController@logout');
 Route::resource('catBodegas','catBodegaController');
 Route::resource('foto','fotoController');
 Route::get('misBodegas','bodegasCliente@index');
-Route::get('pdf','bodegasCliente@pdf');
+Route::get('pdf/{id}','pdfController@pdf');
 Route::get('rentas','rentaController@index');
 Route::resource('mensajes','mensajeController');
 
