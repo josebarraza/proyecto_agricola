@@ -12,14 +12,13 @@ class usuario extends Seeder
     public function run()
     {
         
-        DB::table('users')->insert([
-        	'nombre' => 'Ramón',
-        	'apellido_pat' => 'Barraza',
-        	'apellido_mat' => 'Duarte',
-        	'email' => 'admin@admin.com',
-        	'password' => bcrypt('admin'),
+      DB::table('users')->insert([
+        	'nombre' => 'Lupita',
+        	'apellido_pat' => 'Guerrero',
+        	'apellido_mat' => 'Gutierrez',
+        	'email' => 'admin2@admin.com',
+        	'password' => bcrypt('admin2'),
         	'tipo' => 2
-
         	]);
     }
 }

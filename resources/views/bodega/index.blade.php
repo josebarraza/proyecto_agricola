@@ -22,7 +22,10 @@
 			<tr>
 				<th>Nombre</th>
 				<th>Ancho, Largo, Alto</th>
+				<th>Ancho-Largo Entrada</th>
+				<th>Temperatura/Humedad</th>
 				<th>Ubicación</th>
+				<th>Modo llegada</th>
 				<th>Precio</th>
 				<th>Estatus</th>
 				<th>Comentarios</th>
@@ -35,7 +38,10 @@
 			<tr>
 				<td>{!!$bodega->nombre!!} </td>
 				<td>{!!$bodega->ancho!!}mts - {!!$bodega->largo!!}mts - {!!$bodega->alto!!}mts</td>
+				<td>{!!$bodega->ancho_entrada!!}mts - {!!$bodega->alto_entrada!!}mts</td>
+				<td>{!!$bodega->temperatura!!}°C / {!!$bodega->humedad!!}%</td>
 				<td >{!!$bodega->direccion!!}<br>Col. {!!$bodega->colonia!!}<br>{!!$bodega->ciudad['ciudad']!!}<br>{!!$bodega->ciudad->estado['estado']!!}<br>{!!$bodega->ciudad->estado->pais['pais']!!}</td>
+				<td>{!!$bodega->modoLlegada->modo!!}</td>
 				<td >{!!$bodega->precio!!} pesos</td>
 				 @if($bodega->status == 1)
 					<td > <span class="label label-success">Disponible</span> </td>

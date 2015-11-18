@@ -11,12 +11,14 @@
 |
 */
 use Agricola\Pais;
+use Agricola\Bodega;
 use Agricola\Estado;
 use Agricola\Ciudad;
 
 Route::get('/','FrontController@index');
 Route::get('contacto','FrontController@contacto');
 Route::get('about','FrontController@about');
+Route::get('admin','FrontController@admin');
 Route::get('admin','FrontController@admin');
 Route::resource('user','userController');
 Route::resource('bodega','bodegaController');
@@ -42,6 +44,7 @@ Route::get('/ciudades',function(){
 	return Response::json($ciudades);
 	
 });
+
 
 
 

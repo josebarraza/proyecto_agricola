@@ -30,12 +30,18 @@
 			Medidas:
 			Largo <?php echo e($bodega->largo); ?>m, Ancho <?php echo e($bodega->ancho); ?>m, Alto <?php echo e($bodega->alto); ?>m
 			<br>
+			Medidas de la entrada:
+			Ancho entrada:<?php echo $bodega->ancho_entrada; ?>m, Alto entrada:<?php echo $bodega->alto_entrada; ?>m <br>
+			Temperatura / Humedad : <?php echo $bodega->temperatura; ?>°C / <?php echo $bodega->humedad; ?>% <br>
+			Modo de llegada: <?php echo $bodega->modoLlegada['modo']; ?> <br>
+
 			Ubicación: <?php echo e($bodega->ciudad->ciudad); ?>, <?php echo e($bodega->ciudad->estado->estado); ?>, <?php echo e($bodega->ciudad->estado->pais->pais); ?>
 
 			<br>
 			Dirección: <?php echo e($bodega->direccion); ?>,<?php echo e($bodega->colonia); ?>,
 			<br>
 			<p>
+				Comentarios:
 				<?php echo e($bodega->comentarios); ?>
 
 			</p>

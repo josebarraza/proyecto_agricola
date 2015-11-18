@@ -21,7 +21,10 @@
 			<tr>
 				<th>Nombre</th>
 				<th>Ancho, Largo, Alto</th>
+				<th>Ancho-Largo Entrada</th>
+				<th>Temperatura/Humedad</th>
 				<th>Ubicación</th>
+				<th>Modo llegada</th>
 				<th>Precio</th>
 				<th>Estatus</th>
 				<th>Comentarios</th>
@@ -34,7 +37,10 @@
 			<tr>
 				<td><?php echo $bodega->nombre; ?> </td>
 				<td><?php echo $bodega->ancho; ?>mts - <?php echo $bodega->largo; ?>mts - <?php echo $bodega->alto; ?>mts</td>
+				<td><?php echo $bodega->ancho_entrada; ?>mts - <?php echo $bodega->alto_entrada; ?>mts</td>
+				<td><?php echo $bodega->temperatura; ?>°C / <?php echo $bodega->humedad; ?>%</td>
 				<td ><?php echo $bodega->direccion; ?><br>Col. <?php echo $bodega->colonia; ?><br><?php echo $bodega->ciudad['ciudad']; ?><br><?php echo $bodega->ciudad->estado['estado']; ?><br><?php echo $bodega->ciudad->estado->pais['pais']; ?></td>
+				<td><?php echo $bodega->modoLlegada->modo; ?></td>
 				<td ><?php echo $bodega->precio; ?> pesos</td>
 				 <?php if($bodega->status == 1): ?>
 					<td > <span class="label label-success">Disponible</span> </td>

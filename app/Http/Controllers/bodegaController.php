@@ -4,6 +4,7 @@ namespace Agricola\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Agricola\Pais;
+use Agricola\Modo;
 use Agricola\Bodega;
 use Agricola\Http\Requests;
 use Agricola\Http\Requests\BodegaCreateRequest;
@@ -33,26 +34,16 @@ class bodegaController extends Controller
     public function create()
     {
         $paises = Pais::all();
-        return view('bodega.create',compact('paises'));
+        $modos = Modo::all();
+        return view('bodega.create',compact('paises','modos'));
     }
 
    
     public function store(BodegaCreateRequest $request)
     {
         
-        $bodega = new Bodega();
-        $bodega->nombre         = $request['nombre'];
-        $bodega->ancho          = $request['ancho'];
-        $bodega->largo          = $request['largo'];
-        $bodega->alto           = $request['alto'];
-        $bodega->direccion      = $request['direccion'];
-        $bodega->colonia        = $request['colonia'];
-        $bodega->precio         = $request['precio'];
-        $bodega->comentarios    = $request['comentarios'];
-        $bodega->id_ciudad      = $request['id_ciudad']; 
-        $bodega->foto           = $request['foto']; 
+        $bodega = new Bodega($request->all());
         $bodega->save();
-
         Session::flash('message','Bodega agregada correctamente.');
         return Redirect::to('/bodega');
     }
@@ -68,7 +59,8 @@ class bodegaController extends Controller
     {
         $bodega = Bodega::find($id);
         $paises = Pais::all();
-        return view('bodega.edit',['bodega' => $bodega,'paises'=>$paises]);
+        $modos = Modo::all();
+        return view('bodega.edit',['bodega' => $bodega,'paises'=>$paises,'modos'=>$modos]);
     }
 
    
