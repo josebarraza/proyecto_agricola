@@ -34,7 +34,7 @@ var main = function(){
 		$('#div-files').append("<input type='file' name='foto[]' class='mt'>");
 	});
 
-	//EFECTO DE LAS IMAGENES
+	//EFECTO DE LAS IMAGENES (bodegas)
 	$("#div-img-little").on('mouseenter','img',function(){
 		var principal = $("#img-principal").attr('src');
 		var img = $(this).attr('src');//imagen mouseenter
@@ -42,7 +42,7 @@ var main = function(){
 		$(this).attr('src',principal);
 	});
 
-	
+	//asociar fotos a bodegas
 	$(".add-img-file").change(function (){
        var fileName = $(this).val();
        
@@ -71,7 +71,7 @@ var main = function(){
 			$("#Slider > img#"+sliderNext).fadeIn("slow");
 			sliderInit= sliderNext;
 			sliderNext=sliderNext+1;
-			},3000);
+			},4000);
 	}
 }
 $(document).ready(main);
