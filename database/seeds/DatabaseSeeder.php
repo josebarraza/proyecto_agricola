@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
          $this->call('usuario');
+         $this->call('modos_llegada');
 
         Model::reguard();
     }
