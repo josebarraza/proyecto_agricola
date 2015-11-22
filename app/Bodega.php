@@ -21,11 +21,19 @@ class Bodega extends Model
     						'comentarios',
     						'status',
     						'id_ciudad',
-                            'foto'
+                            'foto',
+                            'modo_llegada',
+                            'humedad',
+                            'temperatura',
+                            'ancho_entrada',
+                            'alto_entrada'
     						];
 
     public function ciudad(){
     	return $this->belongsTo('Agricola\Ciudad','id_ciudad');
+    }
+    public function modoLlegada(){
+        return $this->belongsTo('Agricola\Modo','modo_llegada');
     }
      
     	

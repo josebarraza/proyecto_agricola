@@ -14,6 +14,18 @@
 		        {!! Form::number('largo', null, ['class' => ' ala' ,'placeholder'=>'Metros','min'=>0,'step'=>'any']) !!}
 		        {!! Form::number('alto', null, ['class' => ' ala' ,'placeholder'=>'Metros','min'=>0,'step'=>'any']) !!}
 		    </div>
+			<br>
+		    <!-- MEDIDAS ENTRADA-->
+		    <div class="form-inline">
+	    		{!! Form::label('lblancho', 'Ancho de la entrada:',['class' => 'mr']) !!}
+	    		{!! Form::label('lblalto', 'Alto de la entrada:',['class' => 'mr']) !!}
+	    	</div>
+		    <div class="form-inline">
+		        {!! Form::number('ancho_entrada', null, ['class' => ' ala mr' ,'placeholder'=>'Metros','min'=>0,'step'=>'any']) !!}
+		        {!! Form::number('alto_entrada', null, ['class' => ' ala' ,'placeholder'=>'Metros','min'=>0,'step'=>'any']) !!}
+		    </div>
+		    <br>
+
 	    <!-- UBICACION  -->
 	    <div class="form-group">
 	    	<label for="">Ubicación:</label>
@@ -45,6 +57,26 @@
 		        {!! Form::text('direccion', null, ['class' => 'form-control','placeholder'=>'Calle y numero ']) !!}
 		        {!! Form::text('colonia', null, ['class' => 'form-control']) !!}
 		    </div>
+		<br>
+		<!-- MODO DE LLEGADA-->    
+		<div class="input-group">
+  			{!! Form::label('lblLLEGADA', 'Modo de llegada:') !!}
+  			<select name="modo_llegada"  class="form-control">
+		        	@foreach($modos as $modo)
+						<option value="{{$modo->id}}">{{$modo->modo}}</option>
+		        	@endforeach
+		        </select>
+		</div>
+		<!-- TEMPERATURA -->
+	    <div class="input-group">
+  			{!! Form::label('lbtemp', 'Temperatura:') !!}
+  			{!! Form::number('temperatura', null, ['class' => 'form-control','min'=>0,'step'=>'any']) !!}
+		</div>
+		<!-- HUMEDAD -->
+	    <div class="input-group">
+  			{!! Form::label('lbh', '% de Humedad:') !!}
+  			{!! Form::number('humedad', null, ['class' => 'form-control','min'=>0,'step'=>'any']) !!}
+		</div>    
 	    
 	    <!-- PRECIO -->
 	    <div class="input-group">

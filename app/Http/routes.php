@@ -11,12 +11,14 @@
 |
 */
 use Agricola\Pais;
+use Agricola\Bodega;
 use Agricola\Estado;
 use Agricola\Ciudad;
 
 Route::get('/','FrontController@index');
 Route::get('contacto','FrontController@contacto');
 Route::get('about','FrontController@about');
+Route::get('admin','FrontController@admin');
 Route::get('admin','FrontController@admin');
 Route::resource('user','userController');
 Route::resource('bodega','bodegaController');
@@ -25,7 +27,7 @@ Route::resource('logout','LoginController@logout');
 Route::resource('catBodegas','catBodegaController');
 Route::resource('foto','fotoController');
 Route::get('misBodegas','bodegasCliente@index');
-Route::get('pdf','bodegasCliente@pdf');
+Route::get('pdf/{id}','pdfController@pdf');
 Route::get('rentas','rentaController@index');
 Route::resource('mensajes','mensajeController');
 
@@ -42,6 +44,7 @@ Route::get('/ciudades',function(){
 	return Response::json($ciudades);
 	
 });
+
 
 
 

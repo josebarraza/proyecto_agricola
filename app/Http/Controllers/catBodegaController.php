@@ -70,6 +70,10 @@ class catBodegaController extends Controller
        return $pdf->download('renta.pdf');
     }
 
+    function pdf(){
+       return 'si';
+    }
+
 
 
     

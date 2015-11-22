@@ -31,17 +31,24 @@
 			Medidas:
 			Largo {{$bodega->largo}}m, Ancho {{$bodega->ancho}}m, Alto {{$bodega->alto}}m
 			<br>
+			Medidas de la entrada:
+			Ancho entrada:{!!$bodega->ancho_entrada!!}m, Alto entrada:{!!$bodega->alto_entrada!!}m <br>
+			Temperatura / Humedad : {!!$bodega->temperatura!!}°C / {!!$bodega->humedad!!}% <br>
+			Modo de llegada: {!!$bodega->modoLlegada['modo']!!} <br>
+
 			Ubicación: {{$bodega->ciudad->ciudad}}, {{$bodega->ciudad->estado->estado}}, {{$bodega->ciudad->estado->pais->pais}}
 			<br>
 			Dirección: {{$bodega->direccion}},{{$bodega->colonia}},
 			<br>
 			<p>
+				Comentarios:
 				{{$bodega->comentarios}}
 			</p>
-			Precio: ${{$bodega->precio}} MXN.
+			Precio: ${{number_format($bodega->precio)}}.MXN
 			<br>
 			<br>
 			<br>
+			<a href="/pdf/{!!$bodega->id!!}" class="btn btn-info">Descargar PDF</a>
 			@if(Auth::check() && $bodega->status == 1)
 				{!!link_to_route('catBodegas.edit',$titulo='Rentar',$parameters=$bodega->id,$attributes = ['class'=>'btn btn-danger btn-rentar'])!!}
 			@elseif(!Auth::check())

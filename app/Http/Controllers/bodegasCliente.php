@@ -20,6 +20,8 @@ class bodegasCliente extends Controller
         return view('bodegasCliente.index',compact('rentas'));
     }
 
+   
+
     
 
     
