@@ -9,8 +9,6 @@
 			<img id="4" width="500" height="300" alt="" src="img/1410.jpg" />
 			<img id="5" width="500" height="300" alt="" src="img/1117.jpg" />
 		</div>
-		<a href="#" class="left"> < </a>
-		<a href="#" class="right"> > </a>
 	</div>
 </header>
 @stop
