@@ -36,6 +36,12 @@ class Bodega extends Model
         $pdf->loadHTML($vista);
        return $pdf->download('bodega.pdf');
     }
+    public function imprimeRenta($datos){
+        $vista =  \View::make('pdf.renta', compact('datos'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($vista);
+       return $pdf->download('renta.pdf');
+    }
 
     public function ciudad(){
     	return $this->belongsTo('Agricola\Ciudad','id_ciudad');
