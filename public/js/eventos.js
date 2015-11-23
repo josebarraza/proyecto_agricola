@@ -52,57 +52,5 @@ var main = function(){
        	$("#texto-file").html('Imagen: '+fileName);
        
      });
-<<<<<<< HEAD
-=======
-
-	/*
-	$(".left").on("click",function(e){
-		e.preventDefault();
-		moveSlider("left");
-	});
-	$(".right").on("click",function(e){
-		e.preventDefault();
-		moveSlider("right");
-	});
-	/*
-	function moveSlider(direccion){
-		var limit=$("#Slider").length;
-	
-		loop=setInterval(function(){
-			sliderElement=(direccion=="left") ? sliderElement-1 : sliderElement+1;
-			sliderElement=(sliderElement >= limit) ? 0 : sliderElement;
-			sliderElement=(sliderElement < 0) ? sliderElement-1: sliderElement;
-	
-			$("#Slider > img").fadeOut("fast");
-			$("#Slider > img#"+sliderElement).fadeIn("slow");
-			},3500);
-	}
-/*
-	sliderIni=1;
-=======
-
-
-	//Carrusel
-	sliderInit=1;
->>>>>>> e7f121c587915b129da361d3765c87a45398b57c
-	sliderNext=2;
-	$("#Slider>img#1").fadeIn("slow", function(){
-		startSlider();
-	});
-
-	function startSlider(){
-		count= $("#Slider > img").size();
-		loop=setInterval(function(){
-			if(sliderNext > count){
-				sliderNext=1;
-				sliderIni=1;
-			}
-			$("#Slider > img").fadeOut("fast");
-			$("#Slider > img#"+sliderNext).fadeIn("slow");
-			sliderIni= sliderNext;
-			sliderNext=sliderNext+1;
-			},3500);
->>>>>>> 3a649ecfa8d9e83e4358cea4a7499726fc994bf4
-	
 }
 $(document).ready(main);

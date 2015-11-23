@@ -6,6 +6,7 @@ use Redirect;
 use Agricola\Http\Requests;
 use Agricola\Http\Controllers\Controller;
 use Agricola\Mensaje;
+use Agricola\novedades;
 
 class FrontController extends Controller
 {
@@ -16,7 +17,8 @@ class FrontController extends Controller
     
     public function index()
     {
-        return view('index');
+        $novedades= novedades::all();
+        return view('index',['novedades'=>$novedades]);
     }
 
     public function contacto(){
@@ -32,6 +34,7 @@ class FrontController extends Controller
       $mensajes = Mensaje::all()->count();  
       return view('admin',['mensajes'=>$mensajes]);    
    }
+
 
    
 }
