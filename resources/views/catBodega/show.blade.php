@@ -44,13 +44,15 @@
 				Comentarios:
 				{{$bodega->comentarios}}
 			</p>
-			Precio: ${{number_format($bodega->precio)}}.MXN
+			Precio: ${{number_format($bodega->precio)}}.MXN (Mensuales)
 			<br>
 			<br>
 			<br>
 			<a href="/pdf/{!!$bodega->id!!}" class="btn btn-info">Descargar PDF</a>
 			@if(Auth::check() && $bodega->status == 1)
-				{!!link_to_route('catBodegas.edit',$titulo='Rentar',$parameters=$bodega->id,$attributes = ['class'=>'btn btn-danger btn-rentar'])!!}
+				<!--{!!link_to_route('catBodegas.edit',$titulo='Rentar',$parameters=$bodega->id,$attributes = ['class'=>'btn btn-danger btn-rentar'])!!}-->
+				<a data-toggle="modal" class="btn btn-danger btn-rentar" href="#modalPago">Rentar</a>
+				
 			@elseif(!Auth::check())
 			<div class='thumbs-botones'>
 				<a class="btn btn-primary"data-toggle="modal" href="#myModal">Ingresa para rentar</a>

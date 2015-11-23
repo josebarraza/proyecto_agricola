@@ -27,6 +27,8 @@
 	  				</div>
 				@endforeach
 			</div>
+			{!!$rentas -> render() !!}
 	</div>
+
 </section>
 @stop

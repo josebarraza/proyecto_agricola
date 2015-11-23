@@ -15,8 +15,7 @@ class bodegasCliente extends Controller
   
     public function index()
     {
-        $cliente = Auth::user()->id;
-        $rentas = Renta::where('user_id',$cliente)->paginate(8);
+        $rentas = Renta::where('user_id',Auth::user()->id)->paginate(4);
         return view('bodegasCliente.index',compact('rentas'));
     }
 

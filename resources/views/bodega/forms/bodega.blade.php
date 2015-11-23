@@ -69,7 +69,7 @@
 		</div>
 		<!-- TEMPERATURA -->
 	    <div class="input-group">
-  			{!! Form::label('lbtemp', 'Temperatura:') !!}
+  			{!! Form::label('lbtemp', 'Temperatura (°C):') !!}
   			{!! Form::number('temperatura', null, ['class' => 'form-control','min'=>0,'step'=>'any']) !!}
 		</div>
 		<!-- HUMEDAD -->

@@ -27,7 +27,7 @@ var main = function(){
 
 	//OCULTAR BOTON RENTAR
 	$(".btn-rentar").on('click',function(){
-		$(this).hide();
+		//$(this).hide();
 	});
 
 	//FILES
@@ -53,6 +53,7 @@ var main = function(){
        	$("#texto-file").html('Imagen: '+fileName);
        
      });
+<<<<<<< HEAD
 	/*
 	$(".left").on("click",function(e){
 		e.preventDefault();
@@ -77,6 +78,12 @@ var main = function(){
 	}
 /*
 	sliderIni=1;
+=======
+
+
+	//Carrusel
+	sliderInit=1;
+>>>>>>> e7f121c587915b129da361d3765c87a45398b57c
 	sliderNext=2;
 	$("#Slider>img#1").fadeIn("slow", function(){
 		startSlider();
