@@ -35,7 +35,7 @@ class catBodegaController extends Controller
         $bodega =  Bodega::find($id);
 
          //Cliente rentando
-        $cliente = User::find(Auth::user()->id);
+        $cliente = Auth::user();
 
         if($bodega->status!=2){
             //Nueva renta 
@@ -43,7 +43,7 @@ class catBodegaController extends Controller
 
             $bodega->status = 2; //Cambio de status a rentada
             $renta->bodega_id  = $bodega->id;
-            $renta->user_id = $cliente->id;
+            $renta->user_id = Auth::user()->id;
             $renta->fecha = date('Y-m-d');
             $renta->save();
             $bodega->save();

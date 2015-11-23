@@ -26,7 +26,7 @@ var main = function(){
 
 	//OCULTAR BOTON RENTAR
 	$(".btn-rentar").on('click',function(){
-		$(this).hide();
+		//$(this).hide();
 	});
 
 	//FILES
@@ -53,6 +53,8 @@ var main = function(){
        
      });
 
+
+	//Carrusel
 	sliderInit=1;
 	sliderNext=2;
 	$(document).ready(function(){

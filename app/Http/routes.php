@@ -30,6 +30,7 @@ Route::get('misBodegas','bodegasCliente@index');
 Route::get('pdf/{id}','pdfController@pdf');
 Route::get('rentas','rentaController@index');
 Route::resource('mensajes','mensajeController');
+Route::resource('card','tarjetaController');
 
 Route::get('/estados',function(){
 	$id_pais = Input::get('id_pais');

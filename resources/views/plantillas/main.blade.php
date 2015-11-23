@@ -175,7 +175,7 @@
 		</div>
 	</div>
 
-	<!-- Modal 2-->
+	<!-- Modal 2 (EDITAR DATOS USUARIO)-->
 	<div class="modal fade bs-modal-sm" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
@@ -213,6 +213,47 @@
 		</div>
 	</div>
 
+	<!-- Modal 3 (TARJETA DE PAGO)-->
+	<div class="modal fade bs-modal-sm" id="modalPago" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<br>
+				<div class="bs-example bs-example-tabs">
+					<ul id="myTab" class="nav nav-tabs">
+						<li class="active">
+							<a href="#edit" data-toggle="tab">
+							Tarjeta de Crédito / Débito</a>
+						</li>
+						
+					</ul>
+				</div>
+				<div class="modal-body">
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane  fade active in" id="edit">
+								@if(count(Auth::user()->tarjeta) > 0)
+									{!!Form::model(Auth::user()->tarjeta,['route' => ['card.update',2],'method'=>'PUT'])!!}
+										@include("tarjeta.create")
+									{!!Form::close()!!}
+								
+								{!!Form::submit('Confirmar',['class'=>'btn btn-success btn-block'])!!}
+								@endif
+								
+
+
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					@include('alertas.request')
+					<center>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					</center>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
 	{!! Html::script('js/jquery.js') !!}
 	{!! Html::script('js/eventos.js') !!}
 	{!! Html::script('js/bootstrap.min.js')!!}
