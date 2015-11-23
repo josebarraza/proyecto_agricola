@@ -31,7 +31,9 @@
 						<a href="/"></a>
 					</li>
 					<li>
-						<a href="/" class="page-scroll">Inicio</a>
+						<a href="/" class="page-scroll">
+							<span class="glyphicon glyphicon-home"></span>
+						</a>
 					</li>
 					<li>
 						<a href="/catBodegas">Bodegas</a>

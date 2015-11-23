@@ -9,6 +9,12 @@
 			<img id="4" width="500" height="300" alt="" src="img/1410.jpg" />
 			<img id="5" width="500" height="300" alt="" src="img/1117.jpg" />
 		</div>
+		<button class="left">
+			<span class="glyphicon glyphicon-menu-left"></span>
+		</button> 
+		<button class="right">
+			<span class="glyphicon glyphicon-menu-right"></span>
+		</button> 	
 	</div>
 </header>
 @stop
