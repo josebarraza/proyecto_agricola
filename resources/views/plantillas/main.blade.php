@@ -232,13 +232,7 @@
 				<div class="modal-body">
 					<div id="myTabContent" class="tab-content">
 						<div class="tab-pane  fade active in" id="edit">
-								@if(count(Auth::user()->tarjeta) > 0)
-									{!!Form::model(Auth::user()->tarjeta,['route' => ['card.update',Auth::user()->tarjeta->id],'method'=>'PUT'])!!}
-										@include("tarjeta.create")
-									{!!Form::close()!!}
 								
-								{!!Form::submit('Confirmar',['class'=>'btn btn-success btn-block'])!!}
-								@endif
 								
 
 
