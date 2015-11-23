@@ -62,6 +62,7 @@ class catBodegaController extends Controller
             'fecha'   => $fecha
          ];
 
+
         $vista =  \View::make('pdf.renta', compact('datos'))->render();
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($vista);
@@ -70,11 +71,4 @@ class catBodegaController extends Controller
        return $pdf->download('renta.pdf');
     }
 
-    function pdf(){
-       return 'si';
-    }
-
-
-
-    
 }

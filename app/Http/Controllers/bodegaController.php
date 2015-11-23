@@ -79,9 +79,6 @@ class bodegaController extends Controller
     {
         \Storage::delete(Bodega::find($id)->foto);
          Bodega::destroy($id);
-        
-        
-
         Session::flash('message','Bodega Eliminada');
         return Redirect::to('/bodega');
     }

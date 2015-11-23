@@ -34,6 +34,9 @@
 						<a href="/" class="page-scroll">Inicio</a>
 					</li>
 					<li>
+						<a href="/" class="page-scroll">Granos</a>
+					</li>
+					<li>
 						<a href="/catBodegas">Bodegas</a>
 					</li>
 					<li>
