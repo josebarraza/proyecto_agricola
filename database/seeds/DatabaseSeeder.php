@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder
 
          $this->call('usuario');
          $this->call('modos_llegada');
+         $this->call('Paises');
+         $this->call('Estados');
+         $this->call('Ciudades');
 
         Model::reguard();
     }
