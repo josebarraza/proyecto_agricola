@@ -3,9 +3,12 @@
 namespace Agricola\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
 use Agricola\Http\Requests;
 use Agricola\Http\Controllers\Controller;
+use Session;
+use Redirect;
+use Agricola\Card;
 
 class tarjetaController extends Controller
 {
@@ -16,62 +19,56 @@ class tarjetaController extends Controller
      */
     public function index()
     {
-        return view('pago');
+        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
-        //
+        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
-        //
+        $tarjeta = new Card();
+        $tarjeta->nombre = $request['nombre'];
+        $tarjeta->apellido = $request['apellido'];
+        $tarjeta->numero = $request['numero'];
+        $tarjeta->fecha = $request['fecha'];
+        $tarjeta->anio = $request['anio'];
+        $tarjeta->user_id = Auth::user()->id;
+        $tarjeta->codigo = $request['codigo'];
+        $tarjeta->save();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
-        //
+        
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
-        //
+        //Se guardan los datos de la tarjeta de pago
+        Auth::user()->tarjeta->fill($request->all());
+        Auth::user()->tarjeta->save();
+
+
+
+
+        
+
+
+
+        Session::flash('message','Pago exitoso');
+        return Redirect::to('/');
     }
 
     /**

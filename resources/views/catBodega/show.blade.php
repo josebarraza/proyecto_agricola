@@ -49,9 +49,10 @@
 			<br>
 			<br>
 			<a href="/pdf/{!!$bodega->id!!}" class="btn btn-info">Descargar PDF</a>
-			@if(Auth::check() && $bodega->status == 1)
-				<!--{!!link_to_route('catBodegas.edit',$titulo='Rentar',$parameters=$bodega->id,$attributes = ['class'=>'btn btn-danger btn-rentar'])!!}-->
-				<a data-toggle="modal" class="btn btn-danger btn-rentar" href="#modalPago">Rentar</a>
+			@if(Auth::check() && $bodega->status == 1 && Auth::user()->tarjeta)
+				{!!link_to_route('catBodegas.edit',$titulo='Rentar',$parameters=$bodega->id,$attributes = ['class'=>'btn btn-danger btn-rentar'])!!}
+			@elseif(Auth::check() && !Auth::user()->tarjeta)	
+				<a data-toggle="modal" class="btn btn-warning" href="#modalPago">Elije una forma de pago</a>
 				
 			@elseif(!Auth::check())
 			<div class='thumbs-botones'>

@@ -27,7 +27,7 @@ var main = function(){
 
 	//OCULTAR BOTON RENTAR
 	$(".btn-rentar").on('click',function(){
-		//$(this).hide();
+		$(this).hide();
 	});
 
 	//FILES
@@ -53,7 +53,7 @@ var main = function(){
        	$("#texto-file").html('Imagen: '+fileName);
        
      });
-<<<<<<< HEAD
+
 	/*
 	$(".left").on("click",function(e){
 		e.preventDefault();
