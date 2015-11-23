@@ -1,5 +1,5 @@
 var main = function(){
-	var sliderElement=0;
+	var sliderElement=1;
 	$("#pais").on('change',function(){
 		$("#ciudad").html('');
 		$.get('/estados?id_pais='+$(this).val(),function(data){
@@ -53,19 +53,28 @@ var main = function(){
        	$("#texto-file").html('Imagen: '+fileName);
        
      });
-<<<<<<< HEAD
-	/*
 	$(".left").on("click",function(e){
 		e.preventDefault();
-		moveSlider("left");
+		//moveSlider("left");
 	});
 	$(".right").on("click",function(e){
 		e.preventDefault();
-		moveSlider("right");
+		//moveSlider("right");
 	});
+	function moveSlider(){
+		var limit=$("#Slider").length;
+		loop=setInterval(function(){
+			if(sliderElement>=limit)
+				sliderElement=1;
+			$("#Slider > img").fadeOut("fast");
+			$("#Slider > img#"+sliderElement).fadeIn("slow");
+			sliderElement=sliderElement+1;
+		},3500);
+	}
+
 	/*
 	function moveSlider(direccion){
-		var limit=$("#Slider").length;
+		
 	
 		loop=setInterval(function(){
 			sliderElement=(direccion=="left") ? sliderElement-1 : sliderElement+1;
