@@ -31,9 +31,7 @@
 						<a href="/"></a>
 					</li>
 					<li>
-						<a href="/" class="page-scroll">
-							<span class="glyphicon glyphicon-home"></span>
-						</a>
+						<a href="/" class="page-scroll">Inicio</a>
 					</li>
 					<li>
 						<a href="/" class="page-scroll">Granos</a>
@@ -233,6 +231,10 @@
 					<div id="myTabContent" class="tab-content">
 						<div class="tab-pane  fade active in" id="edit">
 								
+								@if(Auth::user()->tarjeta)
+									{{Auth::user()->tarjeta->nombre}}
+									
+								@endif
 								
 
 
