@@ -256,5 +256,18 @@
 	{!! Html::script('js/classie.js')!!}
 	{!! Html::script('js/jqBootstrapValidation.js')!!}
 	{!! Html::script('js/agency.js') !!}
+	{!! Html::script('js/jquery.slides.js')!!}
+	<script>
+	  $(function(){
+      $(".slider").slidesjs({
+      	  play: {
+          active: true,
+          auto: true,
+          interval: 5000,
+          swap: true
+        }
+      });
+    });
+	</script>
 </body>
 </html>

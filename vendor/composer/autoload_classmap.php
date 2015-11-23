@@ -170,6 +170,7 @@ return array(
     'List_Bullet_Image_Frame_Decorator' => $vendorDir . '/dompdf/dompdf/include/list_bullet_image_frame_decorator.cls.php',
     'List_Bullet_Positioner' => $vendorDir . '/dompdf/dompdf/include/list_bullet_positioner.cls.php',
     'List_Bullet_Renderer' => $vendorDir . '/dompdf/dompdf/include/list_bullet_renderer.cls.php',
+    'Novedades' => $baseDir . '/database/migrations/2015_11_23_091708_novedades.php',
     'NuevosCamposBodega' => $baseDir . '/database/migrations/2015_11_18_020748_nuevos_campos_bodega.php',
     'Null_Frame_Decorator' => $vendorDir . '/dompdf/dompdf/include/null_frame_decorator.cls.php',
     'Null_Frame_Reflower' => $vendorDir . '/dompdf/dompdf/include/null_frame_reflower.cls.php',
