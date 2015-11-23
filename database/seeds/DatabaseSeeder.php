@@ -15,6 +15,10 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
 <<<<<<< HEAD
+         //$this->call('usuario');
+         //$this->call('modos_llegada');
+=======
+<<<<<<< HEAD
          $this->call('usuario');
          $this->call('modos_llegada');
          $this->call('Paises');
@@ -24,6 +28,7 @@ class DatabaseSeeder extends Seeder
          //$this->call('usuario');
          //$this->call('modos_llegada');
 >>>>>>> cd188cd67346e8570197a78f0ed50a45764d9d3e
+>>>>>>> e7f121c587915b129da361d3765c87a45398b57c
 
         Model::reguard();
     }

@@ -1,4 +1,5 @@
 var main = function(){
+	var sliderElement=0;
 	$("#pais").on('change',function(){
 		$("#ciudad").html('');
 		$.get('/estados?id_pais='+$(this).val(),function(data){
@@ -52,13 +53,39 @@ var main = function(){
        	$("#texto-file").html('Imagen: '+fileName);
        
      });
+<<<<<<< HEAD
+	/*
+	$(".left").on("click",function(e){
+		e.preventDefault();
+		moveSlider("left");
+	});
+	$(".right").on("click",function(e){
+		e.preventDefault();
+		moveSlider("right");
+	});
+	/*
+	function moveSlider(direccion){
+		var limit=$("#Slider").length;
+	
+		loop=setInterval(function(){
+			sliderElement=(direccion=="left") ? sliderElement-1 : sliderElement+1;
+			sliderElement=(sliderElement >= limit) ? 0 : sliderElement;
+			sliderElement=(sliderElement < 0) ? sliderElement-1: sliderElement;
+	
+			$("#Slider > img").fadeOut("fast");
+			$("#Slider > img#"+sliderElement).fadeIn("slow");
+			},3500);
+	}
+/*
+	sliderIni=1;
+=======
 
 
 	//Carrusel
 	sliderInit=1;
+>>>>>>> e7f121c587915b129da361d3765c87a45398b57c
 	sliderNext=2;
-	$(document).ready(function(){
-		$("#Slider>img#1").fadeIn("slow");
+	$("#Slider>img#1").fadeIn("slow", function(){
 		startSlider();
 	});
 
@@ -67,13 +94,42 @@ var main = function(){
 		loop=setInterval(function(){
 			if(sliderNext > count){
 				sliderNext=1;
-				sliderInit=1;
+				sliderIni=1;
 			}
 			$("#Slider > img").fadeOut("fast");
 			$("#Slider > img#"+sliderNext).fadeIn("slow");
-			sliderInit= sliderNext;
+			sliderIni= sliderNext;
 			sliderNext=sliderNext+1;
-			},4000);
+			},3500);
+	
+function showSlide(Id){
+	stopLoop();
+	if(Id>count)
+		Id=1;
+	else if(Id<1){
+		id=count;
 	}
+	$("#Slider > img").fadeOut("fast");
+	$("#Slider > img#"+sliderNext).fadeIn("slow");
+
+	sliderIni= Id;
+	sliderNext=Id+1;
+	startSlider();
+ }
+}
+function preview(){
+ 	newSlide=sliderIni-1;
+ 	showSlide(newSlide);
+ }
+function next(){
+ 	newSlide=sliderIni+1;
+ 	showSlide(newSlide);
+ }
+ function stopLoop(){
+ 	window.clearInterval(loop);
+ }
+ $("#Slider > img").hover(function(){
+ 	stopLoop(loop);
+});*/
 }
 $(document).ready(main);
