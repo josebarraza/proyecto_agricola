@@ -22,6 +22,7 @@ return array(
     'Canvas_Factory' => $vendorDir . '/dompdf/dompdf/include/canvas_factory.cls.php',
     'Cellmap' => $vendorDir . '/dompdf/dompdf/include/cellmap.cls.php',
     'CreateBodegasTable' => $baseDir . '/database/migrations/2015_09_18_002308_create_bodegas_table.php',
+    'CreateCardsTable' => $baseDir . '/database/migrations/2015_11_23_002032_create_cards_table.php',
     'CreateCiudadsTable' => $baseDir . '/database/migrations/2015_09_18_002244_create_ciudads_table.php',
     'CreateEstadosTable' => $baseDir . '/database/migrations/2015_09_18_002234_create_estados_table.php',
     'CreateFotosTable' => $baseDir . '/database/migrations/2015_09_27_180103_create_fotos_table.php',

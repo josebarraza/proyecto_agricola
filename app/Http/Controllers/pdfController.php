@@ -11,10 +11,6 @@ class pdfController extends Controller
 {
     public function pdf($id){
         $bodega = Bodega::find($id);
-        $vista =  \View::make('pdf.bodega', compact('bodega'))->render();
-        $pdf = \App::make('dompdf.wrapper');
-        $pdf->loadHTML($vista);
-
-       return $pdf->download('bodega.pdf');
+        return $bodega->imprimePDF();
     }
 }

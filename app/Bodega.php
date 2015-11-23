@@ -29,6 +29,14 @@ class Bodega extends Model
                             'alto_entrada'
     						];
 
+    public function imprimePDF(){
+        $bodega = $this;
+        $vista =  \View::make('pdf.bodega', compact('bodega'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($vista);
+       return $pdf->download('bodega.pdf');
+    }
+
     public function ciudad(){
     	return $this->belongsTo('Agricola\Ciudad','id_ciudad');
     }

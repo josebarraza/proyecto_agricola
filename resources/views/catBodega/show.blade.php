@@ -44,7 +44,7 @@
 				Comentarios:
 				{{$bodega->comentarios}}
 			</p>
-			Precio: ${{number_format($bodega->precio)}}.MXN
+			Precio: ${{number_format($bodega->precio)}}.MXN (Mensuales)
 			<br>
 			<br>
 			<br>

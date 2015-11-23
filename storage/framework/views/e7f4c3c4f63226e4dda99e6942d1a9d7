@@ -45,7 +45,7 @@
 				<?php echo e($bodega->comentarios); ?>
 
 			</p>
-			Precio: $<?php echo e(number_format($bodega->precio)); ?>.MXN
+			Precio: $<?php echo e(number_format($bodega->precio)); ?>.MXN (Mensuales)
 			<br>
 			<br>
 			<br>
