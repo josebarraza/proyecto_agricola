@@ -86,7 +86,7 @@
 		</div>
 		<!-- TEMPERATURA -->
 	    <div class="input-group">
-  			<?php echo Form::label('lbtemp', 'Temperatura:'); ?>
+  			<?php echo Form::label('lbtemp', 'Temperatura (°C):'); ?>
 
   			<?php echo Form::number('temperatura', null, ['class' => 'form-control','min'=>0,'step'=>'any']); ?>
 

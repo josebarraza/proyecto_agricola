@@ -32,6 +32,7 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
+
                         <li>
                             <a href="#">Usuario <span class="glyphicon glyphicon-menu-left fr"></span> </a>
                             <ul class="nav nav-second-level">
@@ -40,6 +41,18 @@
                                 </li>
                                 <li>
                                     <a href="{!!URL::to('/user')!!}">Lista de usuarios</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                         <li>
+                            <a href="#">Producto <span class="glyphicon glyphicon-menu-left fr"></span> </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/product/create')!!}">Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/product')!!}">Lista de productos</a>
                                 </li>
 
                             </ul>
