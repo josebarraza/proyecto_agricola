@@ -176,6 +176,10 @@ nav ul li {
 .mt{
 	margin-top: 10px;
 }
+.ml{
+	margin-left: 20px;
+}
+
 .fr{
 	float: right;
 }

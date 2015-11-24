@@ -61,8 +61,10 @@
 									<?php echo Auth::user()->nombre; ?> <?php echo Auth::user()->apellido_pat; ?> <?php echo Auth::user()->apellido_mat; ?> <span class="glyphicon glyphicon-menu-down"></span>	
 								</a>
 								<ul id="ul-sesion" class="dropdown-menu dropdown-user">
-									<li><a data-toggle="modal"href="#modalEdit">Editar Datos</a></li>
 									<li><a href="/misBodegas">Mis Bodegas</a></li>
+									<li><a data-toggle="modal"href="#modalEdit">Editar Datos</a></li>
+									<li><a data-toggle="modal"href="#modalPago">Forma de pago</a></li>
+									
 									<li><a href="/logout">Cerrar sesión</a>
 									</li>
 
@@ -159,7 +161,7 @@
 								<div class="control-group">
 									<label class="control-label" for="signin"></label>
 									<div class="controls">
-										<?php echo Form::submit('Entrar',['class'=>'btn btn-primary btn-block']); ?> 
+										<?php echo Form::submit('Entrar',['class'=>'btn btn-success btn-block']); ?> 
 									</div>
 								</div>
 							</fieldset>
@@ -170,7 +172,7 @@
 							<?php echo Form::open(['route' => 'user.store','method'=>'POST']); ?>
 
 							<?php echo $__env->make("usuario.forms.user", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-							<?php echo Form::submit("Registrarme", ['class' => 'btn btn-primary btn-block ']); ?>
+							<?php echo Form::submit("Registrarme", ['class' => 'btn btn-success btn-block ']); ?>
 
 							<?php echo Form::close(); ?>
 
@@ -207,7 +209,7 @@
 							<?php echo Form::model(Auth::user(),['route' => ['user.update',Auth::user()->id],'method'=>'PUT']); ?>
 
 							<?php echo $__env->make("usuario.forms.user", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-							<?php echo Form::submit("Actualizar", ['class' => 'btn btn-primary btn-block ']); ?>
+							<?php echo Form::submit("Actualizar", ['class' => 'btn btn-success btn-block ']); ?>
 
 							<?php echo Form::close(); ?>
 
@@ -245,7 +247,7 @@
 					<div id="myTabContent" class="tab-content">
 						<div class="tab-pane  fade active in" id="edit">
 								
-								<?php if(Auth::user()->tarjeta): ?>
+								<?php if(Auth::check() && Auth::user()->tarjeta): ?>
 									<?php echo Form::model(Auth::user()->tarjeta,['route' => ['card.update',Auth::user()->id],'method'=>'PUT']); ?>
 
 										<?php echo $__env->make('tarjeta.create', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -257,7 +259,7 @@
 									<?php echo Form::open(['route' => 'card.store','method'=>'POST']); ?>
 
 										<?php echo $__env->make('tarjeta.create', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-									<?php echo Form::submit("Confirmar pago", ['class' => 'btn btn-success btn-block ']); ?>	
+									<?php echo Form::submit("Confirmar forma de pago", ['class' => 'btn btn-success btn-block ']); ?>	
 									<?php echo Form::close(); ?>
 
 
@@ -291,5 +293,19 @@
 
 	<?php echo Html::script('js/agency.js'); ?>
 
+	<?php echo Html::script('js/jquery.slides.js'); ?>
+
+	<script>
+	  $(function(){
+      $(".slider").slidesjs({
+      	  play: {
+          active: true,
+          auto: true,
+          interval: 5000,
+          swap: true
+        }
+      });
+    });
+	</script>
 </body>
 </html>

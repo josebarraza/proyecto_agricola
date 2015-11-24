@@ -12,11 +12,7 @@ use Agricola\Card;
 
 class tarjetaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         
@@ -40,6 +36,8 @@ class tarjetaController extends Controller
         $tarjeta->user_id = Auth::user()->id;
         $tarjeta->codigo = $request['codigo'];
         $tarjeta->save();
+        Session::flash('message','Se guardaron los cambios');
+        return Redirect::back();
     }
 
     
@@ -50,7 +48,7 @@ class tarjetaController extends Controller
 
     public function edit($id)
     {
-        //
+        
     }
 
     
@@ -59,26 +57,13 @@ class tarjetaController extends Controller
         //Se guardan los datos de la tarjeta de pago
         Auth::user()->tarjeta->fill($request->all());
         Auth::user()->tarjeta->save();
-
-
-
-
-        
-
-
-
-        Session::flash('message','Pago exitoso');
-        return Redirect::to('/');
+        Session::flash('message','Se guardaron los cambios');
+        return Redirect::back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id)
     {
-        //
+        
     }
 }

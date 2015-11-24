@@ -40,7 +40,6 @@ class catBodegaController extends Controller
         if($bodega->status!=2){
             //Nueva renta 
             $renta = new Renta();
-
             $bodega->status = 2; //Cambio de status a rentada
             $renta->bodega_id  = $bodega->id;
             $renta->user_id = Auth::user()->id;

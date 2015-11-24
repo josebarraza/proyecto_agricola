@@ -57,8 +57,10 @@
 									{!!Auth::user()->nombre!!} {!!Auth::user()->apellido_pat!!} {!!Auth::user()->apellido_mat!!} <span class="glyphicon glyphicon-menu-down"></span>	
 								</a>
 								<ul id="ul-sesion" class="dropdown-menu dropdown-user">
-									<li><a data-toggle="modal"href="#modalEdit">Editar Datos</a></li>
 									<li><a href="/misBodegas">Mis Bodegas</a></li>
+									<li><a data-toggle="modal"href="#modalEdit">Editar Datos</a></li>
+									<li><a data-toggle="modal"href="#modalPago">Forma de pago</a></li>
+									
 									<li><a href="/logout">Cerrar sesión</a>
 									</li>
 
@@ -152,7 +154,7 @@
 								<div class="control-group">
 									<label class="control-label" for="signin"></label>
 									<div class="controls">
-										{!!Form::submit('Entrar',['class'=>'btn btn-primary btn-block'])!!} 
+										{!!Form::submit('Entrar',['class'=>'btn btn-success btn-block'])!!} 
 									</div>
 								</div>
 							</fieldset>
@@ -161,7 +163,7 @@
 						<div class="tab-pane fade" id="signup">
 							{!! Form::open(['route' => 'user.store','method'=>'POST']) !!}
 							@include("usuario.forms.user")
-							{!! Form::submit("Registrarme", ['class' => 'btn btn-primary btn-block '])!!}
+							{!! Form::submit("Registrarme", ['class' => 'btn btn-success btn-block '])!!}
 							{!!Form::close()!!}
 						</div>
 					</div>
@@ -195,7 +197,7 @@
 							@if(Auth::check())
 							{!! Form::model(Auth::user(),['route' => ['user.update',Auth::user()->id],'method'=>'PUT']) !!}
 							@include("usuario.forms.user")
-							{!! Form::submit("Actualizar", ['class' => 'btn btn-primary btn-block '])!!}
+							{!! Form::submit("Actualizar", ['class' => 'btn btn-success btn-block '])!!}
 							{!!Form::close()!!}
 							@endif
 
@@ -231,7 +233,7 @@
 					<div id="myTabContent" class="tab-content">
 						<div class="tab-pane  fade active in" id="edit">
 								
-								@if(Auth::user()->tarjeta)
+								@if(Auth::check() && Auth::user()->tarjeta)
 									{!! Form::model(Auth::user()->tarjeta,['route' => ['card.update',Auth::user()->id],'method'=>'PUT']) !!}
 										@include('tarjeta.create')
 									{!! Form::submit("Actualizar forma de pago", ['class' => 'btn btn-success btn-block '])!!}	
@@ -240,7 +242,7 @@
 								@else
 									{!! Form::open(['route' => 'card.store','method'=>'POST']) !!}
 										@include('tarjeta.create')
-									{!! Form::submit("Confirmar pago", ['class' => 'btn btn-success btn-block '])!!}	
+									{!! Form::submit("Confirmar forma de pago", ['class' => 'btn btn-success btn-block '])!!}	
 									{!!Form::close()!!}
 
 								@endif

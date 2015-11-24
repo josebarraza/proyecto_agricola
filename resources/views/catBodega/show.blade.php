@@ -60,7 +60,7 @@
 			</div>	
 			@endif
 		</div>	
-		
+		<a href="/catBodegas" class="btn btn-link btn-block">Atrás</a>
 	</div>
 </section>
 @stop

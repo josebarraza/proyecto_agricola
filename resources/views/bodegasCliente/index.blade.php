@@ -7,7 +7,8 @@
 					<p><h1>Oops.. no tienes bodegas rentadas</h1></p>
 					<h2>Echa un vistazo a nuestras <a href="/catBodegas">Bodegas</a> disponibles</h2>
 					
-				@endif
+				@else
+					<h1 class="ml">Mis bodegas rentadas <span class="verde-grain glyphicon glyphicon-grain"></span></h1>
 				@foreach($rentas as $renta)
 					<div class="col-sm-6 col-md-3">
 					    <div class="thumbnail">
@@ -26,6 +27,7 @@
 					    </div>
 	  				</div>
 				@endforeach
+			@endif	
 			</div>
 			{!!$rentas -> render() !!}
 	</div>
