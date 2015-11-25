@@ -32,6 +32,7 @@ Route::get('rentas','rentaController@index');
 Route::resource('mensajes','mensajeController');
 Route::resource('card','tarjetaController');
 Route::resource('product','productoController');
+Route::resource('catProductos','catProductoController');
 
 Route::get('/estados',function(){
 	$id_pais = Input::get('id_pais');
