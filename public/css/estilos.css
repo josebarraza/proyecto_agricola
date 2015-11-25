@@ -38,6 +38,11 @@ nav ul li {
 	color: black;
 	border: solid black 2px;
 }
+.icon{
+	cursor: pointer;
+	color: white;
+	font-size: 1.3em;
+}
 
 .img-granos{
 	border-radius: 5%;

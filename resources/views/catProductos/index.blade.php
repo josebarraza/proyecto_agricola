@@ -12,7 +12,7 @@
 				<h2>Ponte en <a href="/contacto">contacto</a> con nosotros </h2>
 			</p>		
 		@endif
-
+	<div id="div-add-carrito">
 	@foreach($productos as $producto)
 	  <div class="col-sm-6 col-md-3">
 	    <div class="thumbnail">
@@ -22,12 +22,15 @@
 	        <p class="bold">Kg por costal: {{$producto->saco_kilos}}kg.</p>
 	        <p class="bold">Precio por costal: {{number_format($producto->precio)}} MXN.</p>
 	        <div class='thumbs-botones'>
-	        	<button id="{{$producto->id}}" class="btn boton-add"><span class="glyphicon glyphicon-shopping-cart"></span>Añadir al carrito</button>
+	        		<input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
+	        		<button id="{{$producto->id}}" class="btn boton-add"><span class="glyphicon glyphicon-shopping-cart"></span>Añadir al carrito</button>
+	        	
 	        </div>
 	      </div>
 	    </div>
 	  </div>
 	@endforeach
+	</div>
 	</div>
 	{!!$productos -> render() !!}
 	</div>

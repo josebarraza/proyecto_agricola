@@ -14,7 +14,9 @@
 	{!! Html::style('assets/font-awesome/css/font-awesome.min.css')!!}
 </head>
 <body id="page-top" class="index">
+	<script>
 
+	</script>
 	<nav id="nav"class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -67,6 +69,15 @@
 								</ul>
 							</li>
 						</ul>
+					</li>
+					<li>
+						<a href="/carrito">
+							<div href="/carrito"class="icon  ">
+								<span class="glyphicon glyphicon-shopping-cart"></span> 
+								<span class="badge">{{Auth::user()->id}}</span>
+						</div>
+						</a>
+						
 					</li>
 					@endif
 				</ul>
@@ -265,6 +276,7 @@
 	
 	{!! Html::script('js/jquery.js') !!}
 	{!! Html::script('js/eventos.js') !!}
+	{!! Html::script('js/eventosCarrito.js') !!}
 	{!! Html::script('js/bootstrap.min.js')!!}
 	{!! Html::script('js/classie.js')!!}
 	{!! Html::script('js/jqBootstrapValidation.js')!!}

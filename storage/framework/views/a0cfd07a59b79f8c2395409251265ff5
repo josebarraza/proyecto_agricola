@@ -18,7 +18,9 @@
 
 </head>
 <body id="page-top" class="index">
+	<script>
 
+	</script>
 	<nav id="nav"class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -71,6 +73,15 @@
 								</ul>
 							</li>
 						</ul>
+					</li>
+					<li>
+						<a href="/carrito">
+							<div href="/carrito"class="icon  ">
+								<span class="glyphicon glyphicon-shopping-cart"></span> 
+								<span class="badge"><?php echo e(Auth::user()->id); ?></span>
+						</div>
+						</a>
+						
 					</li>
 					<?php endif; ?>
 				</ul>
@@ -284,6 +295,8 @@
 	<?php echo Html::script('js/jquery.js'); ?>
 
 	<?php echo Html::script('js/eventos.js'); ?>
+
+	<?php echo Html::script('js/eventosCarrito.js'); ?>
 
 	<?php echo Html::script('js/bootstrap.min.js'); ?>
 

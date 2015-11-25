@@ -33,6 +33,7 @@ Route::resource('mensajes','mensajeController');
 Route::resource('card','tarjetaController');
 Route::resource('product','productoController');
 Route::resource('catProductos','catProductoController');
+Route::resource('carrito','carritoController');
 
 Route::get('/estados',function(){
 	$id_pais = Input::get('id_pais');
