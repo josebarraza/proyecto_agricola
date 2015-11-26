@@ -98,7 +98,7 @@ nav ul li {
 	a.slidesjs-previous,
 	a.slidesjs-play,
 	a.slidesjs-stop{
-	  overflow: hidden;
+      overflow: hidden;
       text-indent: -9999px;
       float: left;
       margin-right:5px;
