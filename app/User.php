@@ -51,6 +51,10 @@ class User extends Model implements AuthenticatableContract,
     public function tarjeta(){
        return $this->hasOne('Agricola\Card');
     }
+
+    public function lineasCarrito(){
+        return $this->hasMany('Agricola\LineaCarrito');
+    }
     
 
 }

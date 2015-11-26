@@ -33,6 +33,10 @@ nav ul li {
 	background-color: black;
 	font-size: 1.3em;
 }
+.pointer{
+	cursor: pointer;
+}
+
 .boton-add:hover{
 	background-color: white;
 	color: black;

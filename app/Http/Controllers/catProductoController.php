@@ -11,7 +11,7 @@ use Redirect;
 class catProductoController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
         $productos = Producto::paginate(4);
         return view('catProductos.index',compact('productos'));

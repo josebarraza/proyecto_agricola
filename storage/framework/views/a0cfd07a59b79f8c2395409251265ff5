@@ -16,6 +16,14 @@
 
 	<?php echo Html::style('assets/font-awesome/css/font-awesome.min.css'); ?>
 
+	<?php echo Html::style('assets/alert/css/alertify.css'); ?>
+
+	<?php echo Html::style('assets/alert/css/themes/default.min.css'); ?>
+
+	<?php echo Html::style('assets/alert/css/themes/semantic.min.css'); ?>
+
+	<?php echo Html::style('assets/alert/css/themes/bootstrap.min.css'); ?>
+
 </head>
 <body id="page-top" class="index">
 	<script>
@@ -78,7 +86,7 @@
 						<a href="/carrito">
 							<div href="/carrito"class="icon  ">
 								<span class="glyphicon glyphicon-shopping-cart"></span> 
-								<span class="badge"><?php echo e(Auth::user()->id); ?></span>
+								<span id="contador" class="badge"><?php echo e(count(Auth::user()->lineasCarrito)); ?></span>
 						</div>
 						</a>
 						
@@ -293,6 +301,8 @@
 
 	
 	<?php echo Html::script('js/jquery.js'); ?>
+
+	<?php echo Html::script('js/alertify.js'); ?>
 
 	<?php echo Html::script('js/eventos.js'); ?>
 

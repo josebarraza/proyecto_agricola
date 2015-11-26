@@ -12,6 +12,10 @@
 	{!! Html::style('css/estilos.css') !!}
 	{!! Html::style('css/agency.css')!!}
 	{!! Html::style('assets/font-awesome/css/font-awesome.min.css')!!}
+	{!! Html::style('assets/alert/css/alertify.css')!!}
+	{!! Html::style('assets/alert/css/themes/default.min.css')!!}
+	{!! Html::style('assets/alert/css/themes/semantic.min.css')!!}
+	{!! Html::style('assets/alert/css/themes/bootstrap.min.css')!!}
 </head>
 <body id="page-top" class="index">
 	<script>
@@ -74,7 +78,7 @@
 						<a href="/carrito">
 							<div href="/carrito"class="icon  ">
 								<span class="glyphicon glyphicon-shopping-cart"></span> 
-								<span class="badge">{{Auth::user()->id}}</span>
+								<span id="contador" class="badge">{{count(Auth::user()->lineasCarrito)}}</span>
 						</div>
 						</a>
 						
@@ -275,6 +279,7 @@
 
 	
 	{!! Html::script('js/jquery.js') !!}
+	{!! Html::script('js/alertify.js') !!}
 	{!! Html::script('js/eventos.js') !!}
 	{!! Html::script('js/eventosCarrito.js') !!}
 	{!! Html::script('js/bootstrap.min.js')!!}

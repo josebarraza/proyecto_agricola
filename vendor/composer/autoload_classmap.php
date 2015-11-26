@@ -28,6 +28,7 @@ return array(
     'CreateCiudadsTable' => $baseDir . '/database/migrations/2015_09_18_002244_create_ciudads_table.php',
     'CreateEstadosTable' => $baseDir . '/database/migrations/2015_09_18_002234_create_estados_table.php',
     'CreateFotosTable' => $baseDir . '/database/migrations/2015_09_27_180103_create_fotos_table.php',
+    'CreateLineaCarritosTable' => $baseDir . '/database/migrations/2015_11_26_031749_create_linea_carritos_table.php',
     'CreateMensajesTable' => $baseDir . '/database/migrations/2015_09_28_061836_create_mensajes_table.php',
     'CreateModosTable' => $baseDir . '/database/migrations/2015_11_18_013302_create_modos_table.php',
     'CreatePaisTable' => $baseDir . '/database/migrations/2015_09_18_002221_create_pais_table.php',

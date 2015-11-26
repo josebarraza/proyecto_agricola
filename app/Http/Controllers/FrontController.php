@@ -7,6 +7,7 @@ use Agricola\Http\Requests;
 use Agricola\Http\Controllers\Controller;
 use Agricola\Mensaje;
 use Agricola\novedades;
+use Agricola\LineaCarrito;
 
 class FrontController extends Controller
 {
