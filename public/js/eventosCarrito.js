@@ -13,10 +13,11 @@ var main = function(){
 			success:function(response){
 				if(response != null){
 					alertify.alert(
-						"<label class='text text-success'>Producto añadido al carrito</label> <br>"+
+						"<label class='text text-success'>"+response.mensaje+"</label> <br>"+
 						"<a href=/carrito> <label class='pointer text text-info'>  Ver carrito </label> </a>"
 						).set('basic', false);
-				    $("#contador").text( parseInt($("#contador").text())+1);
+					if(response.grabo)
+				    	$("#contador").text( parseInt($("#contador").text())+1);
 				}	
 			}
 		});

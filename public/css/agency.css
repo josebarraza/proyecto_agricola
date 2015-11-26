@@ -647,6 +647,11 @@ section#bodegas {
     background-position: center;
     background-repeat: no-repeat;
 }
+section#granos {
+    background-image: url(../img/landing/g3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
 section#about {
    background-color: rgba(94,120,23,1);
     background-position: center;

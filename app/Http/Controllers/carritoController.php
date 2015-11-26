@@ -17,7 +17,8 @@ class carritoController extends Controller
     
     public function index()
     {
-        return view('carrito.index');
+        $lineas = Auth::user()->lineasCarrito()->get();
+        return view('carrito.index',compact('lineas'));
     }
 
     
@@ -29,13 +30,17 @@ class carritoController extends Controller
     
     public function store(Request $request)
     {
-        
-        $producto = Producto::find($request->idProducto);
-        $lineaCarrito = new LineaCarrito();
-        $lineaCarrito->user_id = Auth::user()->id;
-        $lineaCarrito->id_producto = $producto->id;
-        $lineaCarrito->save();
-        return response()->json(['mensaje' => 'Producto añadido al carrito']);
+            if(!LineaCarrito::where('id_producto','=',$request->idProducto)){
+                $producto = Producto::find($request->idProducto);
+                $lineaCarrito = new LineaCarrito();
+                $lineaCarrito->user_id = Auth::user()->id;
+                $lineaCarrito->id_producto = $producto->id;
+                $lineaCarrito->save();
+                return response()->json(['mensaje' => 'Producto añadido al carrito','grabo'=>true]);
+            }
+            else{
+                return response()->json(['mensaje' => 'Ese producto ya se añadió al carrito']);
+            }
     }
 
     

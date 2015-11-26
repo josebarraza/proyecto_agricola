@@ -25,6 +25,17 @@ nav ul li {
 	width: 13%;
 
 }
+#carrito{
+	background-color: rgba(228,228,228,1);
+}
+.panel-carrito{
+	width: 70%;
+	padding-top: -200px;
+	margin: 0 auto;
+	border: solid red 1px;
+	background-color: white
+
+}
 .boton-add{
 	color: white;
 	text-decoration: none;

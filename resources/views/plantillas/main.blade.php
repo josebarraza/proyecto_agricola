@@ -15,7 +15,7 @@
 	{!! Html::style('assets/alert/css/alertify.css')!!}
 	{!! Html::style('assets/alert/css/themes/default.min.css')!!}
 	{!! Html::style('assets/alert/css/themes/semantic.min.css')!!}
-	{!! Html::style('assets/alert/css/themes/bootstrap.min.css')!!}
+	
 </head>
 <body id="page-top" class="index">
 	<script>

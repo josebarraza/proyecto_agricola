@@ -16,15 +16,14 @@
 		@foreach($productos as $producto)
 		  <div class="col-sm-6 col-md-3">
 		    <div class="thumbnail">
-		      <img src="<?php echo asset('img/'.$producto->foto); ?>" style="height:200px" class="img-granos">
+		      <img src="<?php echo asset('img/'.$producto->foto); ?>" style="height:200px;width:100%" class="img-granos">
 		      <div class="caption center">
-		        <h3>{{$producto->nombre}}</h3>
+		        <h3>{{$producto->nombre}} <span class="glyphicon glyphicon-grain verde-grain"></span></h3>
 		        <p class="bold">Kg por costal: {{$producto->saco_kilos}}kg.</p>
 		        <p class="bold">Precio por costal: {{number_format($producto->precio)}} MXN.</p>
 		        <div class='thumbs-botones'>
 		        		<input class="ainput"type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-		        		<button id="{{$producto->id}}" data-carrito=true class="btn boton-add"><span class="glyphicon glyphicon-shopping-cart"></span>Añadir al carrito</button>
-		        	
+		        		<button id="{{$producto->id}}" data-carrito=true class="btn boton-add"><span class="glyphicon glyphicon-shopping-cart"></span>Añadir al carrito</button>   	
 		        </div>
 		      </div>
 		    </div>
