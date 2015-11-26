@@ -22,7 +22,7 @@
         interval: 5000,
         auto: false,
         swap: true,
-        pauseOnHover: false,
+        pauseOnHover: true,
         restartDelay: 2500
       },
       effect: {
@@ -31,7 +31,7 @@
         },
         fade: {
           speed: 300,
-          crossfade: true
+          crossfade: false
         }
       },
       callback: {
@@ -129,12 +129,12 @@
       }
       $(".slidesjs-next", $element).click(function(e) {
         e.preventDefault();
-        _this.stop(true);
+        _this.stop(false);
         return _this.next(_this.options.navigation.effect);
       });
       $(".slidesjs-previous", $element).click(function(e) {
         e.preventDefault();
-        _this.stop(true);
+        _this.stop(false);
         return _this.previous(_this.options.navigation.effect);
       });
       if (this.options.play.active) {
@@ -180,7 +180,6 @@
           }).appendTo(paginationItem);
           return paginationLink.click(function(e) {
             e.preventDefault();
-            _this.stop(true);
             return _this.goto(($(e.currentTarget).attr("data-slidesjs-item") * 1) + 1);
           });
         });
