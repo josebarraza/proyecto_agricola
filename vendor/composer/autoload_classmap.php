@@ -579,6 +579,7 @@ return array(
     'Page_Frame_Decorator' => $vendorDir . '/dompdf/dompdf/include/page_frame_decorator.cls.php',
     'Page_Frame_Reflower' => $vendorDir . '/dompdf/dompdf/include/page_frame_reflower.cls.php',
     'Paises' => $baseDir . '/database/seeds/Paises.php',
+    'PonerCantidadLineaCarrito' => $baseDir . '/database/migrations/2015_11_27_040307_poner_cantidad_linea_carrito.php',
     'Positioner' => $vendorDir . '/dompdf/dompdf/include/positioner.cls.php',
     'Renderer' => $vendorDir . '/dompdf/dompdf/include/renderer.cls.php',
     'SebastianBergmann\\Comparator\\ArrayComparator' => $vendorDir . '/sebastian/comparator/src/ArrayComparator.php',

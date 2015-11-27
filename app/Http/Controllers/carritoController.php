@@ -30,17 +30,20 @@ class carritoController extends Controller
     
     public function store(Request $request)
     {
-            if(!LineaCarrito::where('id_producto','=',$request->idProducto)){
-                $producto = Producto::find($request->idProducto);
-                $lineaCarrito = new LineaCarrito();
-                $lineaCarrito->user_id = Auth::user()->id;
-                $lineaCarrito->id_producto = $producto->id;
-                $lineaCarrito->save();
-                return response()->json(['mensaje' => 'Producto añadido al carrito','grabo'=>true]);
-            }
-            else{
-                return response()->json(['mensaje' => 'Ese producto ya se añadió al carrito']);
-            }
+        //Lineas del cliente
+        $lineas = Auth::user()->lineasCarrito;
+        foreach ($lineas as $i => $linea) {
+           if($linea->id_producto == $request->idProducto){
+                 return response()->json(['mensaje' => 'Ese producto ya se añadió al carrito']);
+           }
+        }
+            
+       $lineaCarrito = new LineaCarrito();
+       $lineaCarrito->user_id = Auth::user()->id;
+       $lineaCarrito->id_producto = $request->idProducto;
+       $lineaCarrito->save();
+       return response()->json(['mensaje' => 'Producto añadido al carrito','grabo'=>true]);
+            
     }
 
     
@@ -50,15 +53,22 @@ class carritoController extends Controller
     }
 
     
-    public function edit($id)
+    public function edit($data)
     {
-        
+        return $id;
     }
 
     
     public function update(Request $request, $id)
     {
-        
+        $salidaJSON  = array();
+        foreach ($request->datos as $index => $linea) {
+            $lineaCarrito = LineaCarrito::find($linea[0]);
+            $lineaCarrito->cantidad = $linea[1];
+            $lineaCarrito->save();
+            array_push($salidaJSON, $lineaCarrito->subTotal());
+        }
+        return response()->json($salidaJSON);
     }
 
     

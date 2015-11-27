@@ -2,10 +2,7 @@ html,body{
 	font-family: 'Roboto', sans-serif;
 	margin: 0 auto;
 	padding: 0;
-	
 	height: 100%;
-	
-	
 }
 a{
 	text-decoration: none;
@@ -27,15 +24,9 @@ nav ul li {
 }
 #carrito{
 	background-color: rgba(228,228,228,1);
-}
-.panel-carrito{
-	width: 70%;
-	padding-top: -200px;
-	margin: 0 auto;
-	border: solid red 1px;
-	background-color: white
 
 }
+
 .boton-add{
 	color: white;
 	text-decoration: none;
@@ -51,7 +42,7 @@ nav ul li {
 .boton-add:hover{
 	background-color: white;
 	color: black;
-	border: solid black 2px;
+	border: solid black 1px;
 }
 .icon{
 	cursor: pointer;

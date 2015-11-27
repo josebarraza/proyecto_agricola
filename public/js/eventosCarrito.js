@@ -21,15 +21,46 @@ var main = function(){
 				}	
 			}
 		});
-		
-		
+	
+	}
+	var actualizarTotal = function(){
+		var cajas = $("#tabla-carrito").find('.cantidad');
+		var datos = new Array();
+		var token = $("#tokenn").val();
+			cajas.each(function(index){
+				var linea = $(this).parent().next().next().find('button').attr('id');
+				var cantidad = $(this).val();
+				datos.push([linea,cantidad]);
+			});
+		$.ajax({
+			url:'carrito/update',
+			data:{datos:datos},
+			headers: {'X-CSRF-TOKEN':token},
+			type:'PUT',
+			dataType:'json',
+			success:function(response){
+				if(response){
+					var subtotal = $('#tabla-carrito').find('.span-subtotal');
+					var total = 0;	
+					subtotal.each(function(i){
+						$(this).html(format(response[i],'$'));
+						total+=response[i];
+					});
+					$(".pago-sub").html(format(total,'$'));
+				}
+			}
+		});	
 	}
 
 	//Configurando escuchadores
 	$("#div-add-carrito").on('click','button',agregarLineaAlCarrito);
-
+	$("#actualizar").on('click',actualizarTotal);
 	
-	
+	function format(n, currency) {
+    return currency + " " + n.toFixed(2).replace(/./g, function(c, i, a) {
+        return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+    });
+}
 }
 
 $(document).ready(main);

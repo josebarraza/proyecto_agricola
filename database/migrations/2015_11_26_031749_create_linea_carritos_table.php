@@ -14,11 +14,12 @@ class CreateLineaCarritosTable extends Migration
     {
         Schema::create('linea_carritos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_cliente')->unsigned();
-            $table->foreign('id_cliente')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('id_producto')->unsigned();
             $table->foreign('id_producto')->references('id')->on('productos')->onDelete('cascade');
             $table->timestamps();
+            $table->integer('cantidad')->default(1);
         });
     }
 
