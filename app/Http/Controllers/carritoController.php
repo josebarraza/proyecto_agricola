@@ -18,7 +18,8 @@ class carritoController extends Controller
     public function index()
     {
         $lineas = Auth::user()->lineasCarrito()->get();
-        return view('carrito.index',compact('lineas'));
+        $total = Auth::user()->totalCarrito();
+        return view('carrito.index',compact('lineas','total'));
     }
 
     
@@ -55,7 +56,7 @@ class carritoController extends Controller
     
     public function edit($data)
     {
-        return $id;
+       
     }
 
     
@@ -72,8 +73,13 @@ class carritoController extends Controller
     }
 
     
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        
+        if($request->ajax()){
+            LineaCarrito::destroy($request->idLinea);
+            $lineas = Auth::user()->lineasCarrito()->get();
+            $total = Auth::user()->totalCarrito();
+            return response()->json(view('carrito.parcial',compact('lineas','total'))->render());
+        }
     }
 }

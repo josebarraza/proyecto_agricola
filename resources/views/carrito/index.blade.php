@@ -6,7 +6,7 @@
 		width: 70%;
 		font-weight: bold;
 		text-align: center;
-		border: solid black 1px;
+	
 		border-radius: 5px;
 	}
 	#tabla-carrito thead tr th{
@@ -15,6 +15,9 @@
 		background-color: black;
 		text-align: center;
 		
+	}
+	#tabla-carrito th{
+		width: 20%;
 	}
 	
 	input.cantidad{
@@ -30,9 +33,11 @@
 		margin: 0 auto;
 		background-color: white;
 	}
-	#tabla-carrito,#panel-total{
+	#panel-total,#tabla-carrito{
 		display: inline-block;
 		vertical-align: top;
+		margin-bottom: 10px;
+
 	}
 	.hr{
 		color: black;
@@ -98,9 +103,9 @@
 								<td>{{$linea->producto->nombre}} <br> Costal:{{$linea->producto->saco_kilos}}kg</td>
 								<td >$<span class="precio">{{number_format($linea->producto->precio)}}</span>  MXN.</td>
 								<td><input type="number" value="{{$linea->cantidad}}" min="1" max="999" class="cantidad"></td>
-								<td><span class="span-subtotal">${{number_format($linea->subtotal())}}</span></td>
+								<td><span class="span-subtotal">$ {{number_format($linea->subtotal())}}.00</span></td>
 								<td>
-									<input class="ainput"type="hidden" name="_token" value="{{csrf_token()}}" id="tokenn">
+									<input class="ainput"type="hidden" name="_token" value="{{csrf_token()}}" id="tokenX">
 									<button id="{{$linea->id}}"class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
 								</td>
 
@@ -111,15 +116,16 @@
 
 				<!-- PANEL TOTAL-->
 				<div id="panel-total">
+					<input class="ainput"type="hidden" name="_token" value="{{csrf_token()}}" id="tokenn">
 					<button id="actualizar" class="btn boton-add">Actualizar</button>
 					<div class="group">
 						<span class="span-detalle">Productos</span> 
-						<span class="span-valor">{{count(Auth::user()->lineasCarrito)}}</span>
+						<span id="product-cont" class="span-valor">{{count(Auth::user()->lineasCarrito)}}<span/>
 					</div>
 					
 					<div class="group">
 						<span class=" span-detalle">Subtotal</span>
-						<span class="pago-sub span-valor">${{number_format(12345)}}</span>
+						<span class="pago-sub span-valor">${{number_format($total)}}</span>
 					</div>
 					<div class="group">
 						<span class="span-detalle">Iva</span>
@@ -128,7 +134,7 @@
 					<hr class="hr">
 					<div class="group-total">
 						<span class="span-detalle">Total</span>
-						<span class="pago-sub span-total">${{number_format(10000)}} MXN.</span>
+						<span class="pago-sub span-total">${{number_format($total)}} MXN.</span>
 					</div>
 					<button id="actualizar" class="btn boton-add">Confirmar compra</button>
 

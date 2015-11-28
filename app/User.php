@@ -55,6 +55,14 @@ class User extends Model implements AuthenticatableContract,
     public function lineasCarrito(){
         return $this->hasMany('Agricola\LineaCarrito');
     }
+    public function totalCarrito(){
+        $total = 0;
+        foreach($this->lineasCarrito as $index => $linea){
+            $total= $total + $linea->subtotal();
+        }
+        return $total;
+    }
+
     
 
 }

@@ -51,10 +51,44 @@ var main = function(){
 			}
 		});	
 	}
+	var eliminarLinea = function(){
+		var idLinea = $(this).attr('id');
+		var token = $("#tokenX").val();
+		$.ajax({
+			url:'carrito/destroy',
+			type:'DELETE',
+			dataType:'json',
+			data:{idLinea:idLinea},
+			headers: {'X-CSRF-TOKEN':token},
+			success:function(response){
+				if(response){
+
+						$('#product-cont').text ( parseInt($('#product-cont').text()-1));
+						$('#contador').text ( parseInt($('#contador').text()-1));
+					
+						if( parseInt($('#product-cont').text())!=0){
+							$("#tabla-carrito").html(response);
+							actualizarTotal();
+						}
+						else{
+							$('.panel-carrito').html('<h3>Por el momento no tienes productos en el carrito</h3> <br><h5><a href="/catProductos">ver productos</a></h5>');
+						}
+						
+						
+						 
+					
+					
+				}
+			}
+
+		});
+	}
+
 
 	//Configurando escuchadores
 	$("#div-add-carrito").on('click','button',agregarLineaAlCarrito);
 	$("#actualizar").on('click',actualizarTotal);
+	$("#tabla-carrito").on('click','button',eliminarLinea);
 	
 	function format(n, currency) {
     return currency + " " + n.toFixed(2).replace(/./g, function(c, i, a) {
