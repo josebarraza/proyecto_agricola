@@ -53,8 +53,8 @@ var main = function(){
 	}
 	var eliminarLinea = function(){
 		var idLinea = $(this).attr('id');
-
-		if(!idLinea=='eliminar-todas'){
+		
+		if(idLinea!='eliminar-todas'){
 			var token = $("#tokenX").val();
 			$.ajax({
 				url:'carrito/destroy',

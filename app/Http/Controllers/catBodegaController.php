@@ -13,9 +13,14 @@ use Agricola\Http\Controllers\Controller;
 use Auth;
 use Session;
 use Redirect;
+use DB;
+
 
 class catBodegaController extends Controller
 {
+
+    
+
     public function index()
     {
         $bodegas = Bodega::where('status',1)->paginate(4);        
@@ -30,23 +35,32 @@ class catBodegaController extends Controller
 
     public function edit($id)
     {
+       
         
         //Bodega a rentar
         $bodega =  Bodega::find($id);
 
          //Cliente rentando
-        $cliente = Auth::user();
-
-        if($bodega->status!=2){
-            //Nueva renta 
-            $renta = new Renta();
-            $bodega->status = 2; //Cambio de status a rentada
-            $renta->bodega_id  = $bodega->id;
-            $renta->user_id = Auth::user()->id;
-            $renta->fecha = date('Y-m-d');
-            $renta->save();
-            $bodega->save();
-            $fecha = $renta->fecha;
+        // Auth::user();
+        DB::beginTransaction();
+            if($bodega->status!=2){
+                //Nueva renta 
+                DB::table('bodegas')->where('id', '=',$id)->lockForUpdate()->get();
+                $renta = new Renta();
+                $bodega->status = 2; //Cambio de status a rentada
+                $renta->bodega_id  = $bodega->id;
+                $renta->user_id = Auth::user()->id;
+                $renta->fecha = date('Y-m-d');
+                $renta->save();
+                $bodega->save();
+                $fecha = $renta->fecha;
+         DB::commit();
+             /*
+            for($i=0;$i<10;$i++){
+                $bodega =  Bodega::find($id);
+                $bodega->status = $i;
+                $bodega->save();
+            }*/
 
         }
         else{
@@ -56,7 +70,7 @@ class catBodegaController extends Controller
 
         //Datos del pdf
         $datos = [
-            'cliente' => $cliente,
+            'cliente' => Auth::user(),
             'bodega'  => $bodega,
             'fecha'   => $fecha
          ];
