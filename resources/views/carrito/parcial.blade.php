@@ -5,7 +5,7 @@
 		<th>Precio</th>
 		<th>Cantidad</th>
 		<th>Total</th>
-		<th>Quitar</th>
+		<th> <button id="eliminar-todas"class="mr btn btn-xs btn-default color-negro">Eliminar</button> </th>
 							
 	</tr>
 </thead>

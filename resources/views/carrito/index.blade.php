@@ -30,8 +30,10 @@
 	}
 	.panel-carrito{
 		width: 75%;
-		margin: 0 auto;
+		margin-top: -102px;
+		margin-left: 12.5%;
 		background-color: white;
+		padding-top: 20px;
 	}
 	#panel-total,#tabla-carrito{
 		display: inline-block;
@@ -75,6 +77,12 @@
 	{
 		margin-bottom: 5px;
 	}
+	.mr{
+		margin-right: 5px;
+	}
+	.color-negro{
+		color: black;
+	}
 </style>
 <section id='carrito'>
 	<div class="panel-carrito">
@@ -92,7 +100,7 @@
 							<th>Precio</th>
 							<th>Cantidad</th>
 							<th>Total</th>
-							<th>Quitar</th>
+							<th> <button id="eliminar-todas" class="mr btn btn-xs btn-default color-negro">Eliminar</button> </th>
 							
 						</tr>
 					</thead>

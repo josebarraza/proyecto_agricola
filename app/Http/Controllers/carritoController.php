@@ -75,6 +75,7 @@ class carritoController extends Controller
     
     public function destroy(Request $request,$id)
     {
+        
         if($request->ajax()){
             LineaCarrito::destroy($request->idLinea);
             $lineas = Auth::user()->carrito->lineasCarrito()->get();
