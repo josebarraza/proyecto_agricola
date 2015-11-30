@@ -10,7 +10,7 @@
 	</tr>
 </thead>
 <tbody>
-	@foreach(Auth::user()->lineasCarrito as $linea)
+	@foreach(Auth::user()->carrito->lineasCarrito as $linea)
 		<tr>
 			<td>
 				<img src="<?php echo asset('img/'.$linea->producto->foto); ?>" style="height:75px;width:75px;margin-top:10px;" class="imgthumbs">

@@ -12,10 +12,10 @@ var main = function(){
 			data: {idProducto:idProducto},
 			success:function(response){
 				if(response != null){
-					alertify.alert(
+					alertify.success(
 						"<label class='text text-success'>"+response.mensaje+"</label> <br>"+
 						"<a href=/carrito> <label class='pointer text text-info'>  Ver carrito </label> </a>"
-						).set('basic', false);
+						);
 					if(response.grabo)
 				    	$("#contador").text( parseInt($("#contador").text())+1);
 				}	

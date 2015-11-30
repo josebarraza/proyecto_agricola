@@ -78,7 +78,7 @@
 						<a href="/carrito">
 							<div href="/carrito"class="icon  ">
 								<span class="glyphicon glyphicon-shopping-cart"></span> 
-								<span id="contador" class="badge">{{count(Auth::user()->lineasCarrito)}}</span>
+								<span id="contador" class="badge">{{count(Auth::user()->carrito->lineasCarrito)}}</span>
 						</div>
 						</a>
 						

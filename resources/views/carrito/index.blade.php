@@ -79,7 +79,7 @@
 <section id='carrito'>
 	<div class="panel-carrito">
 		
-		@if(count(Auth::user()->lineasCarrito)==0)
+		@if(count(Auth::user()->carrito->lineasCarrito)==0)
 			<h3>Por el momento no tienes productos en el carrito</h3> <br>
 				<h5><a href="/catProductos">ver productos</a></h5>
 		@else
@@ -97,7 +97,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach(Auth::user()->lineasCarrito as $linea)
+						@foreach(Auth::user()->carrito->lineasCarrito as $linea)
 							<tr>
 								<td><img src="<?php echo asset('img/'.$linea->producto->foto); ?>" style="height:75px;width:75px;margin-top:10px;" class="imgthumbs"></td>
 								<td>{{$linea->producto->nombre}} <br> Costal:{{$linea->producto->saco_kilos}}kg</td>
@@ -120,7 +120,7 @@
 					<button id="actualizar" class="btn boton-add">Actualizar</button>
 					<div class="group">
 						<span class="span-detalle">Productos</span> 
-						<span id="product-cont" class="span-valor">{{count(Auth::user()->lineasCarrito)}}<span/>
+						<span id="product-cont" class="span-valor">{{count(Auth::user()->carrito->lineasCarrito)}}<span/>
 					</div>
 					
 					<div class="group">

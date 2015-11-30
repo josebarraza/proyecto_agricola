@@ -17,8 +17,8 @@ class carritoController extends Controller
     
     public function index()
     {
-        $lineas = Auth::user()->lineasCarrito()->get();
-        $total = Auth::user()->totalCarrito();
+        $lineas = Auth::user()->carrito->lineasCarrito()->get();
+        $total = Auth::user()->carrito->totalCarrito();
         return view('carrito.index',compact('lineas','total'));
     }
 
@@ -32,7 +32,7 @@ class carritoController extends Controller
     public function store(Request $request)
     {
         //Lineas del cliente
-        $lineas = Auth::user()->lineasCarrito;
+        $lineas = Auth::user()->carrito->lineasCarrito;
         foreach ($lineas as $i => $linea) {
            if($linea->id_producto == $request->idProducto){
                  return response()->json(['mensaje' => 'Ese producto ya se añadió al carrito']);
@@ -40,7 +40,7 @@ class carritoController extends Controller
         }
             
        $lineaCarrito = new LineaCarrito();
-       $lineaCarrito->user_id = Auth::user()->id;
+       $lineaCarrito->id_carrito = Auth::user()->carrito->id;
        $lineaCarrito->id_producto = $request->idProducto;
        $lineaCarrito->save();
        return response()->json(['mensaje' => 'Producto añadido al carrito','grabo'=>true]);
@@ -77,8 +77,8 @@ class carritoController extends Controller
     {
         if($request->ajax()){
             LineaCarrito::destroy($request->idLinea);
-            $lineas = Auth::user()->lineasCarrito()->get();
-            $total = Auth::user()->totalCarrito();
+            $lineas = Auth::user()->carrito->lineasCarrito()->get();
+            $total = Auth::user()->carrito->totalCarrito();
             return response()->json(view('carrito.parcial',compact('lineas','total'))->render());
         }
     }

@@ -17,6 +17,7 @@ class CrearTablaProductos extends Migration
             $table->string('nombre');
             $table->float('precio');
             $table->float('saco_kilos');
+            $table->string('foto');
             $table->timestamps();
         });
     }
