@@ -55,13 +55,6 @@ class catBodegaController extends Controller
                 $bodega->save();
                 $fecha = $renta->fecha;
          DB::commit();
-             /*
-            for($i=0;$i<10;$i++){
-                $bodega =  Bodega::find($id);
-                $bodega->status = $i;
-                $bodega->save();
-            }*/
-
         }
         else{
             $bodegaAux = Renta::where('bodega_id',$bodega->id)->get();

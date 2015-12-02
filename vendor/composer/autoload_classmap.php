@@ -25,7 +25,11 @@ return array(
     'CrearTablaDatosFacturacion' => $baseDir . '/database/migrations/2015_12_02_042542_crear_tabla_datos_facturacion.php',
     'CrearTablaLineaCarritos' => $baseDir . '/database/migrations/2015_11_29_233419_crear_tabla_linea_carritos.php',
     'CrearTablaProductos' => $baseDir . '/database/migrations/2015_11_24_042844_crear_tabla_productos.php',
+<<<<<<< HEAD
     'CreateAddressesTable' => $baseDir . '/database/migrations/2015_12_02_041643_create_addresses_table.php',
+=======
+    'CreateAlmacensTable' => $baseDir . '/database/migrations/2015_12_02_052506_create_almacens_table.php',
+>>>>>>> 2611d44d8084bb6f79eef8efba83e2af426677b7
     'CreateBodegasTable' => $baseDir . '/database/migrations/2015_09_18_002308_create_bodegas_table.php',
     'CreateCardsTable' => $baseDir . '/database/migrations/2015_11_23_002032_create_cards_table.php',
     'CreateCarritosTable' => $baseDir . '/database/migrations/2015_11_29_233344_create_carritos_table.php',
