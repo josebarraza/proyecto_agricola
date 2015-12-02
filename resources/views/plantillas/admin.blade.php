@@ -80,7 +80,39 @@
                             </a>
                            
                         </li>
-                        
+                        <li>
+                            <a href="#">Novedades<span class="glyphicon glyphicon-menu-left fr"></span></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#"></a>
+                                </li>
+                                <li>
+                                    <a href="#">Lista de Novedades</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Ordenes de Compra<span class="glyphicon glyphicon-menu-left fr"></span></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/compras/create')!!}"> Nueva Compra</a>
+                                </li>
+                                <li>
+                                    <a href="#">Lista de Compras</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Almacenes<span class="glyphicon glyphicon-menu-left fr"></span></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/almacen/create')!!}">Nuevo Almacen</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/almacen')!!}">Gestión de Almacenes</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

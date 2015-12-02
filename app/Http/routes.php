@@ -34,6 +34,8 @@ Route::resource('card','tarjetaController');
 Route::resource('product','productoController');
 Route::resource('catProductos','catProductoController');
 Route::resource('carrito','carritoController');
+Route::resource('compras','comprasController');
+Route::resource('almacen','almacenController');
 
 Route::get('/estados',function(){
 	$id_pais = Input::get('id_pais');
