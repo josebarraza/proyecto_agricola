@@ -19,7 +19,7 @@ Route::get('/','FrontController@index');
 Route::get('contacto','FrontController@contacto');
 Route::get('about','FrontController@about');
 Route::get('admin','FrontController@admin');
-Route::get('admin','FrontController@admin');
+Route::resource('facturacion','facturacionController');
 Route::resource('user','userController');
 Route::resource('bodega','bodegaController');
 Route::resource('Log','LoginController');
@@ -34,6 +34,8 @@ Route::resource('card','tarjetaController');
 Route::resource('product','productoController');
 Route::resource('catProductos','catProductoController');
 Route::resource('carrito','carritoController');
+Route::get('carritos/eliminarTodas','carritoController@eliminarTodas');
+
 
 Route::get('/estados',function(){
 	$id_pais = Input::get('id_pais');

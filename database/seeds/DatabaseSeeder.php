@@ -15,11 +15,11 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
 
-         //$this->call('usuario');
-         //$this->call('modos_llegada');
-         //$this->call('Paises');
-         //$this->call('Estados');
-         //$this->call('Ciudades');
+         $this->call('usuario');
+         $this->call('modos_llegada');
+         $this->call('Paises');
+         $this->call('Estados');
+         $this->call('Ciudades');
     
 
         Model::reguard();

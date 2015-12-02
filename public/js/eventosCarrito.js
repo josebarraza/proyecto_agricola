@@ -91,10 +91,49 @@ var main = function(){
 
 	var eliminarTodas = function(){
 
-		//dentro de success 
-		alertify.success('se eliminaron todas');
-		$('.panel-carrito').html('<h3>Por el momento no tienes productos en el carrito</h3> <br><h5><a href="/catProductos">ver productos</a></h5>');
+		alertify.confirm("¿Estás seguro de eliminar toda tu compra?",
+		  function(){
+
+		  		$.ajax({
+		  			url:'carritos/eliminarTodas',
+		  			success:function(response){
+		  				if(response){
+			  				$('.panel-carrito').html('<h3>Por el momento no tienes productos en el carrito</h3> <br><h5><a href="/catProductos">ver productos</a></h5>');
+			  				alertify.success('Tu compra ha sido eliminada');
+			  				$('#contador').text ('0');
+		  				}
+		  			}
+		  		});
+
+
+
+
+
+
+
+
+
+
+
+
+		  
+		  },
+		  function(){
+		    //alertify.error('Cancel');
+		  });
 	}
+	var validarCaja = function(e){
+		console.log(e.keyCode);
+	
+		if(  e.keyCode == 69 || e.keyCode == 187 || e.keyCode == 189 || e.keyCode == 190 ){
+			//entrada invalida
+			return false;
+		}
+
+     
+	}
+		
+	
 
 
 
@@ -102,6 +141,7 @@ var main = function(){
 	$("#div-add-carrito").on('click','button',agregarLineaAlCarrito);
 	$("#actualizar").on('click',actualizarTotal);
 	$("#tabla-carrito").on('click','button',eliminarLinea);
+	$('#tabla-carrito').on('keydown','input',validarCaja);
 	
 	function format(n, currency) {
     return currency + " " + n.toFixed(2).replace(/./g, function(c, i, a) {

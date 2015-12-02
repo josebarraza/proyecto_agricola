@@ -87,12 +87,12 @@
 <section id='carrito'>
 	<div class="panel-carrito">
 		
-		@if(count(Auth::user()->carrito->lineasCarrito)==0)
+		@if(count($lineas)==0)
 			<h3>Por el momento no tienes productos en el carrito</h3> <br>
 				<h5><a href="/catProductos">ver productos</a></h5>
 		@else
 			<h3>CARRITO</h3>
-			<table id="tabla-carrito">
+			<table class="table"id="tabla-carrito">
 					<thead>
 						<tr>
 							<th></th>
@@ -105,10 +105,10 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach(Auth::user()->carrito->lineasCarrito as $linea)
+						@foreach($lineas as $linea)
 							<tr>
 								<td><img src="<?php echo asset('img/'.$linea->producto->foto); ?>" style="height:75px;width:75px;margin-top:10px;" class="imgthumbs"></td>
-								<td>{{$linea->producto->nombre}} <br> Costal:{{$linea->producto->saco_kilos}}kg</td>
+								<td>{{$linea->producto->nombre}} <br> Costal: {{$linea->producto->saco_kilos}}kg</td>
 								<td >$<span class="precio">{{number_format($linea->producto->precio)}}</span>  MXN.</td>
 								<td><input type="number" value="{{$linea->cantidad}}" min="1" max="999" class="cantidad"></td>
 								<td><span class="span-subtotal">$ {{number_format($linea->subtotal())}}.00</span></td>
@@ -125,10 +125,10 @@
 				<!-- PANEL TOTAL-->
 				<div id="panel-total">
 					<input class="ainput"type="hidden" name="_token" value="{{csrf_token()}}" id="tokenn">
-					<button id="actualizar" class="btn boton-add">Actualizar</button>
+					<button id="actualizar" class="btn boton-add">Actualizar <span class="glyphicon glyphicon-refresh"></span> </button>
 					<div class="group">
 						<span class="span-detalle">Productos</span> 
-						<span id="product-cont" class="span-valor">{{count(Auth::user()->carrito->lineasCarrito)}}<span/>
+						<span id="product-cont" class="span-valor">{{count($lineas)}}<span/>
 					</div>
 					
 					<div class="group">
@@ -144,12 +144,12 @@
 						<span class="span-detalle">Total</span>
 						<span class="pago-sub span-total">${{number_format($total)}} MXN.</span>
 					</div>
-					<button id="actualizar" class="btn boton-add">Confirmar compra</button>
-
+					<button id="actualizar" class="btn boton-add">Realizar pedido <span class="glyphicon glyphicon-send"></span> </button>
+					
 				</div>
 			
 		@endif	
-		
+		<a class ="btn btn-link btn-block" href="/catProductos">Ver mas productos</a>
 	</div>
 </section>
 @stop

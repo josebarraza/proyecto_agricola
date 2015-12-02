@@ -83,4 +83,11 @@ class carritoController extends Controller
             return response()->json(view('carrito.parcial',compact('lineas','total'))->render());
         }
     }
+
+    public function eliminarTodas(){
+
+         $carrito =  Auth::user()->carrito;
+         LineaCarrito::where('id_carrito',$carrito->id)->delete();
+         return response()->json(['mensaje'=>'Se ha eliminado tu compra']);
+    }
 }

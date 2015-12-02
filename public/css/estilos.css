@@ -39,7 +39,12 @@ nav ul li {
 .pointer{
 	cursor: pointer;
 }
+.form-fact{
+	width:80%;
+	margin-top: -80px;
+	margin-left: 10%;
 
+}
 .boton-add:hover{
 	background-color: white;
 	color: black;

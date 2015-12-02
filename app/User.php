@@ -16,46 +16,33 @@ class User extends Model implements AuthenticatableContract,
 {
     use Authenticatable, Authorizable, CanResetPassword;
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
+    
     protected $table = 'users';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = ['nombre', 'email', 'password','apellido_pat','apellido_mat','tipo'];
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
     protected $hidden = ['password', 'remember_token'];
-
-
-    public function setPasswordAttribute($valor){
-        if(!empty($valor)){
-            $this->attributes['password'] = \Hash::make($valor);
-        }
-    } 
 
     public function bodegas(){
         return $this->hasMany('Agricola\Renta');
     }
-
     public function tarjeta(){
        return $this->hasOne('Agricola\Card');
     }
-
     public function carrito(){
         return $this->hasOne('Agricola\Carrito');
     }
-
+    public function datosF(){
+        return $this->hasOne('Agricola\DatosFacturacion');
+    }
+    public function addresses(){
+        return $this->hasMany('Agricola\Address');
+    }
+     public function setPasswordAttribute($valor){
+        if(!empty($valor)){
+            $this->attributes['password'] = \Hash::make($valor);
+        }
+    } 
     
 
 }

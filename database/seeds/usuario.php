@@ -13,11 +13,11 @@ class usuario extends Seeder
     {
         
       DB::table('users')->insert([
-        	'nombre' => 'Lupita',
-        	'apellido_pat' => 'Guerrero',
-        	'apellido_mat' => 'Gutierrez',
-        	'email' => 'admin2@admin.com',
-        	'password' => bcrypt('admin2'),
+        	'nombre' => 'JOSE',
+        	'apellido_pat' => 'Barraza',
+        	'apellido_mat' => 'Duarte',
+        	'email' => 'admin@admin.com',
+        	'password' => bcrypt('admin'),
         	'tipo' => 2
         	]);
     }

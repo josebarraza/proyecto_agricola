@@ -64,9 +64,9 @@
 								</a>
 								<ul id="ul-sesion" class="dropdown-menu dropdown-user">
 									<li><a href="/misBodegas">Mis Bodegas</a></li>
-									<li><a data-toggle="modal"href="#modalEdit">Editar Datos</a></li>
+									<li><a data-toggle="modal"href="#modalEdit">Mi perfil</a></li>
 									<li><a data-toggle="modal"href="#modalPago">Forma de pago</a></li>
-									
+									<li><a href="/facturacion">Datos de facturación</a></li>
 									<li><a href="/logout">Cerrar sesión</a>
 									</li>
 
