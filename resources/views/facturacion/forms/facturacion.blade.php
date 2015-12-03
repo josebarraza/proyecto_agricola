@@ -38,4 +38,8 @@
 	        {!! Form::label('lblname', 'Colonia:') !!}
 	        {!! Form::text('colonia', null, ['class' => 'form-control']) !!}
 </div>
+<div class="form-group">
+	        {!! Form::label('lblname', 'Código postal:') !!}
+	        {!! Form::text('cp', null, ['class' => 'form-control']) !!}
+</div>
 

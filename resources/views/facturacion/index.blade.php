@@ -1,5 +1,11 @@
 @extends('plantillas.main')
 @section('content')
+<style>
+	section.datos-facturacion{
+		width: 80%;
+		margin: 0 auto;
+	}
+</style>
 	<section class="datos-facturacion">
 		@if($datos)
 		<h2>Datos de facturación</h2>
@@ -9,7 +15,7 @@
 				<td><h4>RFC:</h4> {{$datos->rfc}}</td>
 			</tr>
 			<tr>
-				<td><h4>Dirección:</h4> {{$datos->address->calle}}, {{$datos->address->colonia}}</td>
+				<td><h4>Dirección:</h4> {{$datos->address->calle}}, {{$datos->address->colonia}}, c.p: {{$datos->address->cp}}</td>
 				<td><h4>Ubicación:</h4> {{$datos->address->ciudad->ciudad}}, {{$datos->address->ciudad->estado->estado}}, {{$datos->address->ciudad->estado->pais->pais}}</td>
 			</tr>
 			<tr>
@@ -20,7 +26,7 @@
 				</td>
 			</tr>
 		</table>
-		}
+		
 		@else
 			<h2>Lo siento no cuenta con datos de facturación</h2>
 			<br>

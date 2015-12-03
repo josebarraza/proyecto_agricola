@@ -4,6 +4,7 @@ namespace Agricola\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Agricola\Producto;
+use Agricola\Pais;
 use Agricola\LineaCarrito;
 use Agricola\Http\Requests;
 use Agricola\Http\Controllers\Controller;
@@ -12,14 +13,17 @@ use Redirect;
 use Auth;
 
 
+
 class carritoController extends Controller
 {
     
     public function index()
     {
         $lineas = Auth::user()->carrito->lineasCarrito()->get();
-        $total = Auth::user()->carrito->totalCarrito();
-        return view('carrito.index',compact('lineas','total'));
+        $subtotal = Auth::user()->carrito->totalCarrito();
+        $iva = $subtotal*.16;
+        $total = $subtotal+$iva;
+        return view('carrito.index',compact('lineas','subtotal','iva','total'));
     }
 
     
@@ -89,5 +93,18 @@ class carritoController extends Controller
          $carrito =  Auth::user()->carrito;
          LineaCarrito::where('id_carrito',$carrito->id)->delete();
          return response()->json(['mensaje'=>'Se ha eliminado tu compra']);
+    }
+
+    public function pedido(){
+        $addresses = Auth::user()->addresses;
+        $paises    = Pais::all();
+        
+        $productos = count(Auth::user()->carrito->lineasCarrito());
+        $subtotal = Auth::user()->carrito->totalCarrito();
+        $iva = $subtotal*.16;
+        $total = $subtotal+$iva;
+        
+        
+        return view('carrito.pedido',compact('addresses','paises','subtotal','iva','total','productos'));
     }
 }

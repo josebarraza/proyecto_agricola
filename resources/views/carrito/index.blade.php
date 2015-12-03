@@ -133,18 +133,18 @@
 					
 					<div class="group">
 						<span class=" span-detalle">Subtotal</span>
-						<span class="pago-sub span-valor">${{number_format($total)}}</span>
+						<span class="pago-sub span-valor">${{number_format($subtotal)}}</span>
 					</div>
 					<div class="group">
 						<span class="span-detalle">Iva</span>
-						<span class="span-valor">${{number_format(0)}}</span>
+						<span class="span-valor iva">${{number_format($iva)}}</span>
 					</div>
 					<hr class="hr">
 					<div class="group-total">
 						<span class="span-detalle">Total</span>
-						<span class="pago-sub span-total">${{number_format($total)}} MXN.</span>
+						<span class="pago-total span-total">${{number_format($total)}} MXN.</span>
 					</div>
-					<button id="actualizar" class="btn boton-add">Realizar pedido <span class="glyphicon glyphicon-send"></span> </button>
+					<a href="pedido" id="realizar-pedido" class="btn boton-add">Realizar pedido <span class="glyphicon glyphicon-send"></span> </a>
 					
 				</div>
 			

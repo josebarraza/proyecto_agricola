@@ -40,13 +40,18 @@ var main = function(){
 			dataType:'json',
 			success:function(response){
 				if(response){
-					var subtotal = $('#tabla-carrito').find('.span-subtotal');
-					var total = 0;	
-					subtotal.each(function(i){
+					var cajas = $('#tabla-carrito').find('.span-subtotal');
+					var sub = 0;	
+					cajas.each(function(i){
 						$(this).html(format(response[i],'$'));
-						total+=response[i];
+						sub+=response[i];
 					});
-					$(".pago-sub").html(format(total,'$'));
+
+					var iva = sub*.16;
+					var total = sub + iva;
+					$(".pago-sub").html(format(sub,'$'));
+					$(".iva").html(format(iva,'$'));
+					$(".pago-total").html(format(total,'$'));
 				}
 			}
 		});	
@@ -129,19 +134,20 @@ var main = function(){
 			//entrada invalida
 			return false;
 		}
+	}
 
-     
+	var clickSiguientePagar = function(){
+		$('.div-entrega').hide();
+		$('.forma-pago').show('slow');
 	}
 		
 	
-
-
-
 	//Configurando escuchadores
 	$("#div-add-carrito").on('click','button',agregarLineaAlCarrito);
 	$("#actualizar").on('click',actualizarTotal);
 	$("#tabla-carrito").on('click','button',eliminarLinea);
 	$('#tabla-carrito').on('keydown','input',validarCaja);
+	$('#siguiente-pagar').on('click',clickSiguientePagar);
 	
 	function format(n, currency) {
     return currency + " " + n.toFixed(2).replace(/./g, function(c, i, a) {

@@ -22,14 +22,12 @@ return array(
     'Canvas_Factory' => $vendorDir . '/dompdf/dompdf/include/canvas_factory.cls.php',
     'Cellmap' => $vendorDir . '/dompdf/dompdf/include/cellmap.cls.php',
     'Ciudades' => $baseDir . '/database/seeds/Ciudades.php',
+    'CodigoPostal' => $baseDir . '/database/migrations/2015_12_03_031016_codigo_postal.php',
     'CrearTablaDatosFacturacion' => $baseDir . '/database/migrations/2015_12_02_042542_crear_tabla_datos_facturacion.php',
     'CrearTablaLineaCarritos' => $baseDir . '/database/migrations/2015_11_29_233419_crear_tabla_linea_carritos.php',
     'CrearTablaProductos' => $baseDir . '/database/migrations/2015_11_24_042844_crear_tabla_productos.php',
-<<<<<<< HEAD
     'CreateAddressesTable' => $baseDir . '/database/migrations/2015_12_02_041643_create_addresses_table.php',
-=======
     'CreateAlmacensTable' => $baseDir . '/database/migrations/2015_12_02_052506_create_almacens_table.php',
->>>>>>> 2611d44d8084bb6f79eef8efba83e2af426677b7
     'CreateBodegasTable' => $baseDir . '/database/migrations/2015_09_18_002308_create_bodegas_table.php',
     'CreateCardsTable' => $baseDir . '/database/migrations/2015_11_23_002032_create_cards_table.php',
     'CreateCarritosTable' => $baseDir . '/database/migrations/2015_11_29_233344_create_carritos_table.php',
@@ -585,7 +583,6 @@ return array(
     'Page_Frame_Decorator' => $vendorDir . '/dompdf/dompdf/include/page_frame_decorator.cls.php',
     'Page_Frame_Reflower' => $vendorDir . '/dompdf/dompdf/include/page_frame_reflower.cls.php',
     'Paises' => $baseDir . '/database/seeds/Paises.php',
-    'PonerUseridFacturacion' => $baseDir . '/database/migrations/2015_12_02_053243_poner_userid_facturacion.php',
     'Positioner' => $vendorDir . '/dompdf/dompdf/include/positioner.cls.php',
     'Renderer' => $vendorDir . '/dompdf/dompdf/include/renderer.cls.php',
     'SebastianBergmann\\Comparator\\ArrayComparator' => $vendorDir . '/sebastian/comparator/src/ArrayComparator.php',
