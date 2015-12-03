@@ -10,6 +10,8 @@ use Agricola\Pais;
 use Agricola\Address;
 use Agricola\DatosFacturacion;
 use Auth;
+use Session;
+use Redirect;
 
 class facturacionController extends Controller
 {
@@ -35,6 +37,7 @@ class facturacionController extends Controller
         $direccion->id_ciudad = $request->id_ciudad;
         $direccion->colonia = $request->colonia;
         $direccion->calle = $request->calle;
+        $direccion->cp = $request->cp;
         $direccion->save();
 
         $datosF = new DatosFacturacion();
@@ -44,8 +47,9 @@ class facturacionController extends Controller
         $datosF->rfc = $request->rfc;
         $datosF->email = $request->email;
         $datosF->save();
-
-        //DatosFacturacion::create($request->all());
+        Session::flash('message','Datos actualizados');
+        return Redirect::to('/facturacion');
+       
     }
 
     
@@ -57,6 +61,7 @@ class facturacionController extends Controller
     
     public function edit($id)
     {
+        
          $paises = Pais::all();
          $datos = DatosFacturacion::find($id);
         return view('facturacion.edit',compact('paises','datos'));
@@ -65,6 +70,14 @@ class facturacionController extends Controller
     
     public function update(Request $request, $id)
     {
+        $datos = DatosFacturacion::find($id);
+        $datos->fill($request->all());
+        $datos->save();
+        $direccion = Address::find($datos->address->id);
+        $direccion->fill($request->all());
+        $direccion->save();
+        Session::flash('message','Datos actualizada corréctamente');
+        return Redirect::to('/facturacion');
         
     }
 
