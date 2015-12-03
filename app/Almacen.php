@@ -15,4 +15,8 @@ class Almacen extends Model
     						'id_ciudad',
                             'capacidad'
     						];
+
+    public function ciudad(){
+    	return $this->belongsTo('Agricola\Ciudad','id_ciudad');
+    }
 }

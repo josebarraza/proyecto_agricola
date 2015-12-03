@@ -81,7 +81,7 @@
                            
                         </li>
                         <li>
-                            <a href="#">Novedades<span class="glyphicon glyphicon-menu-left fr"></span></span></a>
+                            <a href="#">Novedades<span class="glyphicon glyphicon-menu-left fr"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="#"></a>
@@ -92,13 +92,24 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">Ordenes de Compra<span class="glyphicon glyphicon-menu-left fr"></span></span></a>
+                            <a href="#">Ordenes de Compra<span class="glyphicon glyphicon-menu-left fr"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!!URL::to('/compras/create')!!}"> Nueva Compra</a>
+                                    <a href="{!!URL::to('/compras/create')!!}">Nueva registro de compra</a>
                                 </li>
                                 <li>
-                                    <a href="#">Lista de Compras</a>
+                                    <a href="{!!URL::to('/compras')!!}">Gestión de Compras</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Produccion<span class="glyphicon glyphicon-menu-left fr"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/produccion/create')!!}">Nuevo registro de producción</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/produccion')!!}">Gestión de Producción</a>
                                 </li>
                             </ul>
                         </li>

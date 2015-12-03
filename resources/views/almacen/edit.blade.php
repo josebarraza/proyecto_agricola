@@ -1,8 +1,8 @@
 @extends('plantillas.admin')
 @section('content')
-	<span class="letras-grandes">Editar Almacen</span>
-	{!! Form::open(['route' => 'almacen.update','method'=>'POST','files'=>true]) !!}
-	   	@include('almacen.forms.almacen')
+	<span class="letra-grande">Editar Almacen</span>
+	{!!Form::model($almacen,['route' => ['almacen.update',$almacen->id],'method'=>'PUT','files'=>true])!!}
+	   	@include('almacen.forms.almacen',$paises);
 	   	{!! Form::submit("Guardar ", ['class'=>'btn btn-success btn-block mt '])!!}
 	{!! Form::close() !!}
 @stop

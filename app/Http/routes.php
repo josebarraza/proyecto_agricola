@@ -37,6 +37,7 @@ Route::resource('carrito','carritoController');
 Route::get('carritos/eliminarTodas','carritoController@eliminarTodas');
 Route::resource('compras','comprasController');
 Route::resource('almacen','almacenController');
+Route::resource('produccion','produccionController');
 
 Route::get('/estados',function(){
 	$id_pais = Input::get('id_pais');
