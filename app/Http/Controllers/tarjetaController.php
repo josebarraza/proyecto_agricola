@@ -13,16 +13,6 @@ use Agricola\Card;
 class tarjetaController extends Controller
 {
     
-    public function index()
-    {
-        
-    }
-
-    
-    public function create()
-    {
-        
-    }
 
    
     public function store(Request $request)
@@ -40,18 +30,6 @@ class tarjetaController extends Controller
         return Redirect::back();
     }
 
-    
-    public function show($id)
-    {
-        
-    }
-
-    public function edit($id)
-    {
-        
-    }
-
-    
     public function update(Request $request, $id)
     {
         //Se guardan los datos de la tarjeta de pago
@@ -62,8 +40,9 @@ class tarjetaController extends Controller
     }
 
    
-    public function destroy($id)
+    public function traerTarjeta()
     {
-        
+        $card = Auth::user()->tarjeta;
+        return response()->json(['card'=>$card]);
     }
 }

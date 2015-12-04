@@ -11,6 +11,7 @@ use Agricola\Http\Controllers\Controller;
 use Session;
 use Redirect;
 use Auth;
+use Agricola\Address;
 
 
 
@@ -99,12 +100,20 @@ class carritoController extends Controller
         $addresses = Auth::user()->addresses;
         $paises    = Pais::all();
         
-        $productos = count(Auth::user()->carrito->lineasCarrito());
+        $productos = count(Auth::user()->carrito->lineasCarrito()->get());
         $subtotal = Auth::user()->carrito->totalCarrito();
         $iva = $subtotal*.16;
         $total = $subtotal+$iva;
         
-        
+
         return view('carrito.pedido',compact('addresses','paises','subtotal','iva','total','productos'));
+    }
+
+    public function traerAddress(Request $request){
+        
+        $direccion = Address::find($request->address_id);
+        $estado = $direccion->ciudad->estado->id;
+        $pais = $direccion->ciudad->estado->pais->id;
+        return response()->json(['direccion' => $direccion,'estado'=>$estado,'pais'=>$pais]);
     }
 }

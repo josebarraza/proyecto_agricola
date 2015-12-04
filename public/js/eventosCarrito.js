@@ -137,8 +137,72 @@ var main = function(){
 	}
 
 	var clickSiguientePagar = function(){
-		$('.div-entrega').hide();
-		$('.forma-pago').show('slow');
+		$("#form-pedido").hide();
+		$(".forma-pago").show('slow');
+		$('.calle-e').text( $('#txtCalle').val() );
+		$('.colonia-e').text( $("#txtColonia").val() );
+		$('.ubicacion-e').text( $("#ciudad option:selected").text()+", "+$("#estado option:selected").text()+", "+$("#pais option:selected").text() );
+		$('.cp-e').text( $("#txtCp").val() );
+		$(".detalle-direccion").show();
+
+		//traer tarjeta
+		$.ajax({
+			url:'traer-tarjeta',
+			success:function(response){
+				if(response){
+					
+					$("#txtNomCard").val(response.card.nombre);
+					$("#txtApCard").val(response.card.apellido);
+					$("#txtCodigoCard").val(response.card.codigo);
+					$("#txtNumCard").val(response.card.numero);
+					
+					$("#fechaCard").val(response.card.fecha);
+					$("#anioCard").val(response.card.anio);
+				}
+			}
+		});
+
+	}
+	var editarDireccion = function(){
+		$('.forma-pago').hide();
+		$('#form-pedido').show('slow');
+		$(".detalle-direccion").hide();
+	}
+
+	var cambioDireccion = function(){
+		var id = $(this).val();
+		var token = $("#tokenX").val();
+		if(id>0){
+			$.ajax({
+				url:'traer-direccion',
+				type:'GET',
+				dataType:'json',
+				data:{address_id:id},
+				headers: {'X-CSRF-TOKEN':token},
+				success:function(response){
+					if(response){
+						$("#txtCalle").val(response.direccion.calle);
+						$("#txtColonia").val(response.direccion.colonia);
+						$("#txtCp").val(response.direccion.cp);
+						$("#pais").val(response.pais);
+						$("#estado").val(response.estado);
+						cambioPais(response.pais);
+						
+						cambioEstado(response.estado);
+						$("#tabla-direccion").show();
+					}
+				}
+			});
+		}
+		else if(id==0){
+			$("#txtCalle").val('');
+			$("#txtColonia").val('');
+			$("#txtCp").val('');
+			$("#pais").val(null);
+			$("#estado").html('');
+			$("#ciudad").html('');
+			$("#tabla-direccion").show();
+		}
 	}
 		
 	
@@ -148,12 +212,45 @@ var main = function(){
 	$("#tabla-carrito").on('click','button',eliminarLinea);
 	$('#tabla-carrito').on('keydown','input',validarCaja);
 	$('#siguiente-pagar').on('click',clickSiguientePagar);
+	$(".editar-direccion").on('click',editarDireccion);
+	$("#select-dir").on('change',cambioDireccion);
 	
 	function format(n, currency) {
     return currency + " " + n.toFixed(2).replace(/./g, function(c, i, a) {
         return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
     });
 }
+
+$("#pais").on('change',function(){
+		cambioPais( $(this).val() );
+	});
+	var cambioPais = function(id){
+		$.get('/estados?id_pais='+id,function(data){
+			$("#estado").html('');
+			$("#estado").append("<option value=''>Estado</option>");
+			$.each(data, function(i,v){
+				$("#estado").append("<option value="+v.id+">"+v.estado+"</option>");
+			});
+			if(data=='')
+				$("#estado").html('');
+		});
+	}
+$("#estado").on('change',function(){
+		cambioEstado( $(this).val());
+
+		
+	});
+	var cambioEstado = function(id){
+		$.get('/ciudades?id_estado='+id,function(data){
+			$("#ciudad").html('');
+			$("#ciudad").append("<option value=''>Ciudad</option>");
+			$.each(data, function(i,v){
+				$("#ciudad").append("<option value="+v.id+">"+v.ciudad+"</option>");
+			});
+			if(data=='')
+				$("#ciudad").html('');
+		});
+	}	
 }
 
 $(document).ready(main);

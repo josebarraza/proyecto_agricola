@@ -1,27 +1,6 @@
 var main = function(){
-	$("#pais").on('change',function(){
-		$("#ciudad").html('');
-		$.get('/estados?id_pais='+$(this).val(),function(data){
-			$("#estado").html('');
-			$("#estado").append("<option value=''>Estado</option>");
-			$.each(data, function(i,v){
-				$("#estado").append("<option value="+v.id+">"+v.estado+"</option>");
-			});
-			if(data=='')
-				$("#estado").html('');
-		});
-	});
-	$("#estado").on('change',function(){
-		$.get('/ciudades?id_estado='+$(this).val(),function(data){
-			$("#ciudad").html('');
-			$("#ciudad").append("<option value=''>Ciudad</option>");
-			$.each(data, function(i,v){
-				$("#ciudad").append("<option value="+v.id+">"+v.ciudad+"</option>");
-			});
-			if(data=='')
-				$("#ciudad").html('');
-		});
-	});
+
+
 	
 
 	//OCULTAR BOTON RENTAR
