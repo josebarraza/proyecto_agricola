@@ -2,7 +2,7 @@
 @section('content')
 <div class="panel panel-default lista-recursos">
   	<div class="panel-heading centrar-texto">
-  		<span class="letra-grande">Lista de Almacenes</span>
+  		<span> <strong>Lista de Almacenes</strong></span>
   	</div>
 
   	@if(count($almacenes)>0)

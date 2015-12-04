@@ -34,12 +34,12 @@ Route::resource('card','tarjetaController');
 Route::resource('product','productoController');
 Route::resource('catProductos','catProductoController');
 Route::resource('carrito','carritoController');
-<<<<<<< HEAD
+
 Route::get('carritos/eliminarTodas','carritoController@eliminarTodas');
 Route::resource('compras','comprasController');
 Route::resource('almacen','almacenController');
 Route::resource('produccion','produccionController');
-=======
+
 
 Route::get('carritos/eliminarTodas','carritoController@eliminarTodas');
 Route::get('pedido','carritoController@pedido');
@@ -48,7 +48,6 @@ Route::get('pedido','carritoController@pedido');
 Route::resource('compras','comprasController');
 Route::resource('almacen','almacenController');
 
->>>>>>> 24ecd15a0b340f9b32c958dfd49d78ed187d780a
 
 Route::get('/estados',function(){
 	$id_pais = Input::get('id_pais');

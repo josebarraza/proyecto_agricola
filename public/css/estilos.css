@@ -251,6 +251,7 @@ nav ul li {
 
 .letra-grande{
 	font-size: 2.3em;
+	margin-left: 30%;
 }
 .verde-grain{
 	color: rgba(106,231,64,1);
@@ -272,6 +273,20 @@ nav ul li {
 	text-align: center;
 }
 .form-almacen{
-	margin: 0 auto;
+	margin: 5% 10%;
 	width: 65%;
+}
+.ml{
+	margin-left: 50px;
+}
+.small{
+	width: 80px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
 }

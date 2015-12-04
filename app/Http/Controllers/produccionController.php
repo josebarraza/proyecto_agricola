@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 use Agricola\Http\Requests;
 use Agricola\Http\Controllers\Controller;
 use Agricola\Pais;
+use Agricola\Producto;
+use Agricola\Produccion;
+use Agricola\Almacen;
+use Agricola\inventario;
+use Session;
+use Redirect;
 
 class produccionController extends Controller
 {
@@ -18,6 +24,9 @@ class produccionController extends Controller
     public function index()
     {
         //
+        $producciones=Produccion::all();
+        $inventarios=Inventario::all();
+        return view('produccion.index', compact('producciones','inventarios'));
     }
 
     /**
@@ -28,27 +37,38 @@ class produccionController extends Controller
     public function create()
     {
         //
+        $productos=Producto::all();
         $paises=Pais::all();
-        return view('produccion.create', compact('paises'));
+        $almacenes=Almacen::all();
+        return view('produccion.create', compact('paises','productos','almacenes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
-    }
+        
+        
+        $inventario = new Inventario();
+        $inventario->aniocosecha=$request->aniocosecha;
+        $inventario->mescosecha=$request->mescosecha;
+        $inventario->cantidad=$request->cantidad;
+        $inventario->status=4;
+        $inventario->id_producto=$request->producto;
+        $inventario->id_almacen=$request->almacen;
+        $inventario->save();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+        $produccion=new Produccion();
+        $produccion->precio=$request->costo;
+        $produccion->caracteristicas=$request->caracteristicas;
+        $produccion->dificultades=$request->dificultades;
+        $produccion->id_ciudad=$request->id_ciudad;
+        $produccion->id_inventario=$inventario->id;
+        $produccion->cantidad=$request->cantidad;
+        $produccion->save();
+
+        Session::flash('message','Acción completada con éxito');
+        return Redirect::to('produccion');
+
+    }
     public function show($id)
     {
         //
