@@ -34,13 +34,12 @@ Route::resource('card','tarjetaController');
 Route::resource('product','productoController');
 Route::resource('catProductos','catProductoController');
 Route::resource('carrito','carritoController');
-
 Route::get('carritos/eliminarTodas','carritoController@eliminarTodas');
 Route::get('pedido','carritoController@pedido');
-
-
 Route::resource('compras','comprasController');
 Route::resource('almacen','almacenController');
+Route::get('traer-direccion','carritoController@traerAddress');
+Route::get('traer-tarjeta','tarjetaController@traerTarjeta');
 
 
 Route::get('/estados',function(){
