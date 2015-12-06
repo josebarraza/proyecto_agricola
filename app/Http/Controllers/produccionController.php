@@ -25,7 +25,6 @@ class produccionController extends Controller
     {
         //
         $producciones=Produccion::all();
-       // return $producciones;
         return view('produccion.index', compact('producciones'));
     }
 
@@ -71,45 +70,18 @@ class produccionController extends Controller
 
     public function edit($id)
     {
-        //
-        $produccion=Produccion::find($id);
-        $productos=Producto::all();
-        $paises=Pais::all();
-        $almacenes=Almacen::all();
-        return view('produccion.edit',compact('produccion','paises','productos','almacenes'));
+      
 
     }
 
     public function update(Request $request, $id)
     {
-        //
-        $produccion = Produccion::find($id);
-        $inventario =Inventario::find($produccion->id_inventario);
-        $inventario->id_producto=$request->producto;
-        $inventario->id_almacen=$request->almacen;
-        $inventario->save();
-
-        $produccion->precio=$request->costo;
-        $produccion->caracteristicas=$request->caracteristicas;
-        $produccion->dificultades=$request->dificultades;
-        $produccion->id_ciudad=$request->id_ciudad;
-        $produccion->id_inventario=$inventario->id;
-        $produccion->cantidad=$request->cantidad;
-        $produccion->save();
-
-        Session::flash('message','Produccion actualizada corréctamente');
-        return Redirect::to('produccion');
+       
     }
 
 
     public function destroy($id)
     {
-        //
-        $produccion = Produccion::find($id);
-        $inventario =Inventario::find($produccion->id_inventario);
-        Inventario::destroy($inventario->id);
-        Produccion::destroy($id);
-        Session::flash('message','Producción Eliminada');
-        return Redirect::to('/almacen');
+
     }
 }

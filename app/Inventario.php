@@ -17,9 +17,9 @@ class Inventario extends Model
     						'id_almacen'];
 
     public function producto(){
-    	return $this->hasMany('Agricola\Producto', 'id_producto');
+    	return $this->belongsTo('Agricola\Producto','id_producto');
     }
     public function almacen(){
-    	return $this->hasMany('Agricola\Almacen','id_almacen');
+    	return $this->belongsTo('Agricola\Almacen','id_almacen');
     }
 }

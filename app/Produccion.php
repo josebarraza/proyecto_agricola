@@ -17,10 +17,10 @@ class Produccion extends Model
     						'id_ciudad'];
 
    	public function ciudad(){
-   		return $this->belogsTo('Agricola\Ciudad','id_ciudad');
+   		return $this->belongsTo('Agricola\Ciudad','id_ciudad');
    	}
 
    	public function inventario(){
-   		return $this->hasOne('Agricola\Inventario');
+   		return $this->belongsTo('Agricola\Inventario','id_inventario');
    	}
 }

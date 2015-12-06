@@ -22,7 +22,7 @@
 		<tbody>
 		@foreach($producciones as $produccion)
 			<tr>
-				<td>{{$produccion->inventario->producto['nombre']}} </td>
+				<td>{{$produccion->inventario->producto->nombre}} </td>
 				<td>{{$produccion->inventario->aniocosecha}}/{{$produccion->inventario->mescosecha}}</td>
 				<td>{{$produccion->cantidad}}</td>
 				<td>{{$produccion->precio}}</td>
@@ -30,10 +30,6 @@
 				<td>{{$produccion->inventario->almacen->nombre}} </td>
 				<td>{{$produccion->caracteristicas}} </td>
 				<td>{{$produccion->dificultades}} </td>
-				<td>{!! link_to_route('produccion.edit' , $title='Editar', $parameters = $produccion->id, $attributes = ['class' => 'btn btn-primary']) !!}
-					{!!Form::open(['route' => ['produccion.destroy',$produccion->id],'method' => 'DELETE'])!!}
-						{!!Form::submit('Eliminar',['class' => 'btn btn-danger'])!!}
-					{!!Form::close()!!}</td>
 			</tr>
 		@endforeach
 		</tbody>
@@ -42,5 +38,4 @@
  	<span class="letra-grande">No hay producciones registradas.</span>
  	@endif
 </div>	
-{{$almacenes-> render() }}
 @stop
