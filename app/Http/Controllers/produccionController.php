@@ -25,15 +25,10 @@ class produccionController extends Controller
     {
         //
         $producciones=Produccion::all();
-        $inventarios=Inventario::all();
-        return view('produccion.index', compact('producciones','inventarios'));
+       // return $producciones;
+        return view('produccion.index', compact('producciones'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
@@ -74,37 +69,47 @@ class produccionController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
+        $produccion=Produccion::find($id);
+        $productos=Producto::all();
+        $paises=Pais::all();
+        $almacenes=Almacen::all();
+        return view('produccion.edit',compact('produccion','paises','productos','almacenes'));
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
+        $produccion = Produccion::find($id);
+        $inventario =Inventario::find($produccion->id_inventario);
+        $inventario->id_producto=$request->producto;
+        $inventario->id_almacen=$request->almacen;
+        $inventario->save();
+
+        $produccion->precio=$request->costo;
+        $produccion->caracteristicas=$request->caracteristicas;
+        $produccion->dificultades=$request->dificultades;
+        $produccion->id_ciudad=$request->id_ciudad;
+        $produccion->id_inventario=$inventario->id;
+        $produccion->cantidad=$request->cantidad;
+        $produccion->save();
+
+        Session::flash('message','Produccion actualizada corréctamente');
+        return Redirect::to('produccion');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         //
+        $produccion = Produccion::find($id);
+        $inventario =Inventario::find($produccion->id_inventario);
+        Inventario::destroy($inventario->id);
+        Produccion::destroy($id);
+        Session::flash('message','Producción Eliminada');
+        return Redirect::to('/almacen');
     }
 }

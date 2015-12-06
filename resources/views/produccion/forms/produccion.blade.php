@@ -48,3 +48,13 @@
 	    {!! Form::number('cantidad', null, ['class' => 'small' ,'placeholder'=>'','min'=>1,'step'=>'any']) !!}
 		</div>
 	<br>
+	
+		<!--COSTO-->
+		{!! Form::label('lblcosto', 'Costo de Producción: $',['class' => '']) !!}
+	    {!! Form::number('costo', null, ['class' => 'small' ,'placeholder'=>'MN','min'=>1,'step'=>'any']) !!}
+		<br>
+		{!! Form::label('lblcaracteristicas', 'Caracteristicas del producto:') !!}
+	    {!! Form::text('caracteristicas', null, ['class' => 'form-control','placeholder'=>'Caracteristicas del producto cosechado. ']) !!}
+		<br>
+		{!! Form::label('lbldificultades', 'Dificultades durante la cosecha:') !!}
+	    {!! Form::text('dificultades', null, ['class' => 'form-control','placeholder'=>'Percanses y/o situaciones de amenaza durante la cosecha']) !!}

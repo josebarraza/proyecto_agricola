@@ -9,8 +9,9 @@ use Agricola\Ciudad;
 class Produccion extends Model
 {
   	protected $table="producciones";
-    protected $fillable = ['precioUnitario',
+    protected $fillable = ['precio',
     						'caracteristicas',
+                'cantidad',
     						'dificultades',
     						'id_inventario',
     						'id_ciudad'];
@@ -20,6 +21,6 @@ class Produccion extends Model
    	}
 
    	public function inventario(){
-   		return $this->hasOne('Agricola\Inventario','id_inventario');
+   		return $this->hasOne('Agricola\Inventario');
    	}
 }
