@@ -1,5 +1,35 @@
 var main = function(){
 
+	$("#pais").on('change',function(){
+		cambioPais( $(this).val() );
+	});
+	var cambioPais = function(id){
+		$.get('/estados?id_pais='+id,function(data){
+			$("#estado").html('');
+			$("#estado").append("<option value=''>Estado</option>");
+			$.each(data, function(i,v){
+				$("#estado").append("<option value="+v.id+">"+v.estado+"</option>");
+			});
+			if(data=='')
+				$("#estado").html('');
+		});
+	}
+	$("#estado").on('change',function(){
+		cambioEstado( $(this).val());
+
+	});
+	var cambioEstado = function(id){
+		$.get('/ciudades?id_estado='+id,function(data){
+			$("#ciudad").html('');
+			$("#ciudad").append("<option value=''>Ciudad</option>");
+			$.each(data, function(i,v){
+				$("#ciudad").append("<option value="+v.id+">"+v.ciudad+"</option>");
+			});
+			if(data=='')
+				$("#ciudad").html('');
+		});
+	}
+
 
 	
 
