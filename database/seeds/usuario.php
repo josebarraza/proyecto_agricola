@@ -20,5 +20,6 @@ class usuario extends Seeder
         	'password' => bcrypt('admin'),
         	'tipo' => 2
         	]);
+       
     }
 }

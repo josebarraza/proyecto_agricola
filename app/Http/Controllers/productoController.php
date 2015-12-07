@@ -4,6 +4,7 @@ namespace Agricola\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Agricola\Producto;
+use Agricola\Inventario;
 use Agricola\Http\Requests;
 use Agricola\Http\Controllers\Controller;
 use Session;

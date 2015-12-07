@@ -13,6 +13,10 @@ class Producto extends Model
         $this->attributes['foto'] = Carbon::now()->second.$path->getClientOriginalName();
         $name = Carbon::now()->second.$path->getClientOriginalName();
         \Storage::disk('local')->put($name,\File::get($path)); 
+    }
+
+    public function inventario(){
+    	return $this->hasOne('Agricola\Inventario','id_producto');
     }	
 
 }

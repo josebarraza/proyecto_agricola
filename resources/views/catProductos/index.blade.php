@@ -23,10 +23,13 @@
 		        <p class="bold">Precio por costal: {{number_format($producto->precio)}} MXN.</p>
 		        <div class='thumbs-botones'>
 		        		<input class="ainput"type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-		        		@if(Auth::check())
-		        		<button id="{{$producto->id}}" data-carrito=true class="btn boton-add"><span class="glyphicon glyphicon-shopping-cart"></span>Añadir al carrito</button>
+		        		@if(Auth::check() && $producto->inventario)
+		        		<button id="{{$producto->id}}" data-carrito=true class="btn boton-add"><span class="glyphicon glyphicon-shopping-cart"></span> Añadir al carrito</button>
+		        		@elseif(!Auth::check())
+		        		<a data-toggle="modal" class="btn boton-add"href="#myModal">Ingresa para comprar</a> 
 		        		@else
-		        		<a data-toggle="modal" class="btn boton-add"href="#myModal">Ingresa para comprar</a>  
+		        		<button class="btn boton-add"><span class="glyphicon glyphicon-ban-circle"></span> Producto agotado</button>
+
 		        		@endif 	
 		        </div>
 		      </div>

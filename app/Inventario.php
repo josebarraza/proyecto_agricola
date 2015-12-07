@@ -21,4 +21,8 @@ class Inventario extends Model
     public function almacen(){
     	return $this->belongsTo('Agricola\Almacen','id_almacen');
     }
+
+    public function sumProducto(){
+        return $this->belongsTo('Agricola\Producto','id_producto')->sum('cantidad');
+    }
 }

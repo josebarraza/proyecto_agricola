@@ -46,6 +46,7 @@ Route::resource('compras','comprasController');
 Route::resource('almacen','almacenController');
 Route::get('traer-direccion','carritoController@traerAddress');
 Route::get('traer-tarjeta','tarjetaController@traerTarjeta');
+Route::post('venta/new','ventaController@createVenta');
 
 
 Route::get('/estados',function(){

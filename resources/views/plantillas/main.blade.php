@@ -282,6 +282,7 @@
 	{!! Html::script('js/alertify.js') !!}
 	{!! Html::script('js/eventos.js') !!}
 	{!! Html::script('js/eventosCarrito.js') !!}
+	{!! Html::script('js/eventosVenta.js') !!}
 	{!! Html::script('js/bootstrap.min.js')!!}
 	{!! Html::script('js/classie.js')!!}
 	{!! Html::script('js/jqBootstrapValidation.js')!!}
