@@ -84,7 +84,7 @@ class carritoController extends Controller
            }
            
            if($linea[1] > $disponible)
-                return response()->json(['mensaje'=>'No se cuenta con la cantidad solicitada','producto'=>$lineaCarrito->producto,'cantidad'=>$disponible]);
+                return response()->json(['mensaje'=>'No se cuenta con la cantidad solicitada <br> O es producto en proceso de certificación','producto'=>$lineaCarrito->producto,'cantidad'=>$disponible]);
             
 
 

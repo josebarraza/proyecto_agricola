@@ -20,4 +20,16 @@ class Venta extends Model
         }
         return $total;
     }
+
+       public function imprimePDF(){
+        $venta = $this;
+        $vista =  \View::make('pdf.venta', compact('venta'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($vista);
+       return $pdf->download('venta.pdf');
+    }
+
+    public function address(){
+        return $this->belongsTo('Agricola\Address','address_id');
+    }
 }

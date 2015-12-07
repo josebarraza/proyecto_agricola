@@ -55,10 +55,27 @@ var procesoVenta = function(){
 		},
 		headers: {'X-CSRF-TOKEN':token},
 		success:function(response){
-
+			if(response.mensaje){
+				
+   				eliminarLineasCarrito();
+   				alertify
+ 				 .alert("Tu compra se ah efectuado con éxito. <br> <a href='/misCompras'>Mis compras </a>");
+   				$("#section-pedido").hide();
+   				
+  				
+			}
 		}
 	});
 	
+}
+
+var eliminarLineasCarrito = function(){
+				$.ajax({
+		  			url:'carritos/eliminarTodas',
+		  			success:function(response){
+		  				
+		  			}
+		  		});
 }
 
 

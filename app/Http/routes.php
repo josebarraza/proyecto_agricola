@@ -20,6 +20,7 @@ Route::get('contacto','FrontController@contacto');
 Route::get('about','FrontController@about');
 Route::get('admin','FrontController@admin');
 Route::resource('facturacion','facturacionController');
+Route::get('misCompras','FrontController@compras');
 Route::resource('user','userController');
 Route::resource('bodega','bodegaController');
 Route::resource('Log','LoginController');
@@ -38,16 +39,20 @@ Route::get('carritos/eliminarTodas','carritoController@eliminarTodas');
 Route::resource('compra','comprasController');
 Route::resource('almacen','almacenController');
 Route::resource('produccion','produccionController');
+<<<<<<< HEAD
 Route::resource('certificaciones','certificacionesController');
 
 
+=======
+>>>>>>> 607fa88fbc842ea6f2106a12610005f027fac024
 Route::get('carritos/eliminarTodas','carritoController@eliminarTodas');
 Route::get('pedido','carritoController@pedido');
 Route::resource('compras','comprasController');
 Route::resource('almacen','almacenController');
 Route::get('traer-direccion','carritoController@traerAddress');
 Route::get('traer-tarjeta','tarjetaController@traerTarjeta');
-Route::post('venta/new','ventaController@createVenta');
+Route::resource('venta/new','ventaController@createVenta');
+Route::get('venta/pdf/{id}','ventaController@ventaPDF');
 
 
 Route::get('/estados',function(){

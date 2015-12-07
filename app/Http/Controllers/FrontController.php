@@ -7,6 +7,7 @@ use Agricola\Http\Requests;
 use Agricola\Http\Controllers\Controller;
 use Agricola\Mensaje;
 use Agricola\novedades;
+use Agricola\Venta;
 
 use Agricola\LineaCarrito;
 
@@ -35,6 +36,11 @@ class FrontController extends Controller
 
       $mensajes = Mensaje::all()->count();  
       return view('admin',['mensajes'=>$mensajes]);    
+   }
+
+   public function compras(){
+    $compras = Venta::where('user_id',Auth::user()->id)->get();
+    return view('compras',compact('compras'));
    }
 
    

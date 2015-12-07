@@ -63,6 +63,7 @@
 									{!!Auth::user()->nombre!!} {!!Auth::user()->apellido_pat!!} {!!Auth::user()->apellido_mat!!} <span class="glyphicon glyphicon-menu-down"></span>	
 								</a>
 								<ul id="ul-sesion" class="dropdown-menu dropdown-user">
+									<li><a href="/misCompras">Mis Compras</a></li>
 									<li><a href="/misBodegas">Mis Bodegas</a></li>
 									<li><a data-toggle="modal"href="#modalEdit">Mi perfil</a></li>
 									<li><a data-toggle="modal"href="#modalPago">Forma de pago</a></li>
