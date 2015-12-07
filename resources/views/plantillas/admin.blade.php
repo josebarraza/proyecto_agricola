@@ -124,6 +124,17 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="#">Certificaciones<span class="glyphicon glyphicon-menu-left fr"></span></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/certificaciones/index')!!}">Certificaciones pendientes</a>
+                                </li>
+                                <li>
+                                    <a href="#">Lista de Certificaciones</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

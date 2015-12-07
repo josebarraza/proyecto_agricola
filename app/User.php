@@ -43,6 +43,11 @@ class User extends Model implements AuthenticatableContract,
             $this->attributes['password'] = \Hash::make($valor);
         }
     } 
-    
+     /*   public function certificacionesPendientes($id){
+        $pendientes=DB::table('inventarios')
+                        ->leftJoin('certificaciones', 'inventarios.id', '=', 'certificaciones.id_inventario')
+                        ->join('users', $id, '<>', 'certificaciones.id_usuario')
+                        ->get();
+    }*/
 
 }

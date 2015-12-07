@@ -6,6 +6,9 @@
 	   	@include('compra.forms.compra')
 		
 	   	{!! Form::submit("Guardar", ['class'=>'btn btn-success btn-block mt '])!!}
+	   	<br>
+	   	<br>
+	   	{!! link_to_route('compra.index' , $title = 'Cancelar compra' ,$attributes = ['class' => 'btn btn-default']) !!}
 	{!! Form::close() !!}
 </div>
  

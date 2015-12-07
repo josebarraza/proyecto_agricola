@@ -33,6 +33,7 @@ return array(
     'CreateBodegasTable' => $baseDir . '/database/migrations/2015_09_18_002308_create_bodegas_table.php',
     'CreateCardsTable' => $baseDir . '/database/migrations/2015_11_23_002032_create_cards_table.php',
     'CreateCarritosTable' => $baseDir . '/database/migrations/2015_11_29_233344_create_carritos_table.php',
+    'CreateCertificacionsTable' => $baseDir . '/database/migrations/2015_12_07_083118_create_certificacions_table.php',
     'CreateCiudadsTable' => $baseDir . '/database/migrations/2015_09_18_002244_create_ciudads_table.php',
     'CreateComprasTable' => $baseDir . '/database/migrations/2015_12_07_010945_create_compras_table.php',
     'CreateEstadosTable' => $baseDir . '/database/migrations/2015_09_18_002234_create_estados_table.php',
