@@ -40,7 +40,7 @@ class comprasController extends Controller
         $almacen=Almacen::find($request->almacen);
         if(($almacen->stock + $request->cantidad ) > $almacen->capacidad){
             Session::flash('message','No existe espacio suficiente en el almacen, intenta con otro.');
-            return Redirect::to('compra.create');
+            return Redirect::to('compra');
         }
 
         $almacen->stock= $almacen->stock+$request->cantidad;
