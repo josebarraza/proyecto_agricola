@@ -41,8 +41,8 @@ class produccionController extends Controller
     {
         $almacen=Almacen::find($request->almacen);
         if(($almacen->stock + $request->cantidad ) > $almacen->capacidad){
-            Session::flash('message','No existe espacio suficiente en el almacen, intenta con otro.');
-            return Redirect::to('produccion.create');
+            Session::flash('message','No hay suficiente espacio en el almacen.');
+            return view('produccion');
         }
 
         $almacen->stock= $almacen->stock+$request->cantidad;
