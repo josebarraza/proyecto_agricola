@@ -9,8 +9,7 @@ use Agricola\Almacen;
 class Inventario extends Model
 {
   	protected $table="inventarios";
-    protected $fillable = ['aniocosecha',
-    						'mescosecha',
+    protected $fillable = ['fechacosecha',
     						'cantidad',
     						'status',
     						'id_producto',

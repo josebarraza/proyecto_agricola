@@ -12,6 +12,7 @@
 				<th>Nombre</th>
 				<th>Ubicación</th>
 				<th>Capacidad (costales)</th>
+				<th>Stock Actual(costales)</th>
 				<th>Acciones</th>
 			</tr>
 		</thead>
@@ -23,6 +24,7 @@
 					{{$almacen->ciudad['ciudad']}}, {{$almacen->ciudad->estado['estado']}}, {{$almacen->ciudad->estado->pais['pais']}}
 				</td>
 				<td>{{$almacen->capacidad}}</td>
+				<td>{{$almacen->stock}}</td>
 				<td>{!! link_to_route('almacen.edit' , $title='Editar', $parameters = $almacen->id, $attributes = ['class' => 'btn btn-primary']) !!}
 					{!!Form::open(['route' => ['almacen.destroy',$almacen->id],'method' => 'DELETE'])!!}
 						{!!Form::submit('Eliminar',['class' => 'btn btn-danger'])!!}

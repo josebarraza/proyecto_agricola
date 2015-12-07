@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 use Agricola\Http\Requests;
 use Agricola\Http\Controllers\Controller;
+use Session;
+use Redirect;
+use Agricola\Producto;
+use Agricola\Pais;
+use Agricola\Almacen;
+use Agricola\Compra;
+use Agricola\Inventario;
 
 class comprasController extends Controller
 {
@@ -17,27 +24,46 @@ class comprasController extends Controller
     public function index()
     {
         //
+        $compras=Compra::all();
+        return view('compra.index', compact('compras'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('compras.create');
+        $productos=Producto::all();
+        $paises=Pais::all();
+        $almacenes=Almacen::all();
+        return view('compra.create', compact('paises','productos','almacenes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $almacen=Almacen::find($request->almacen);
+        if(($almacen->stock + $request->cantidad ) > $almacen->capacidad){
+            Session::flash('message','No existe espacio suficiente en el almacen, intenta con otro.');
+            return Redirect::to('compra.create');
+        }
+
+        $almacen->stock= $almacen->stock+$request->cantidad;
+        $almacen->save();
+
+        $inventario = new Inventario();
+        $inventario->fechacosecha=$request->fechacosecha;
+        $inventario->cantidad=$request->cantidad;
+        $inventario->status=0;
+        $inventario->id_producto=$request->producto;
+        $inventario->id_almacen=$request->almacen;
+        $inventario->save();
+
+        $compra=new Compra();
+        $compra->precio=$request->costo;
+        $compra->proveedor=$request->proveedor;
+        $compra->id_ciudad=$request->id_ciudad;
+        $compra->id_inventario=$inventario->id;
+        $compra->cantidad=$request->cantidad;
+        $compra->save();
+
+        Session::flash('message','Acción completada con éxito');
+        return Redirect::to('compra');
     }
 
     /**

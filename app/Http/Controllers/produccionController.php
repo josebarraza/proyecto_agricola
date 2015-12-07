@@ -10,7 +10,7 @@ use Agricola\Pais;
 use Agricola\Producto;
 use Agricola\Produccion;
 use Agricola\Almacen;
-use Agricola\inventario;
+use Agricola\Inventario;
 use Session;
 use Redirect;
 
@@ -39,11 +39,17 @@ class produccionController extends Controller
 
     public function store(Request $request)
     {
-        
-        
+        $almacen=Almacen::find($request->almacen);
+        if(($almacen->stock + $request->cantidad ) > $almacen->capacidad){
+            Session::flash('message','No existe espacio suficiente en el almacen, intenta con otro.');
+            return Redirect::to('produccion.create');
+        }
+
+        $almacen->stock= $almacen->stock+$request->cantidad;
+        $almacen->save();
+
         $inventario = new Inventario();
-        $inventario->aniocosecha=$request->aniocosecha;
-        $inventario->mescosecha=$request->mescosecha;
+        $inventario->fechacosecha=$request->fechacosecha;
         $inventario->cantidad=$request->cantidad;
         $inventario->status=4;
         $inventario->id_producto=$request->producto;
@@ -61,8 +67,8 @@ class produccionController extends Controller
 
         Session::flash('message','Acción completada con éxito');
         return Redirect::to('produccion');
-
     }
+
     public function show($id)
     {
         //
