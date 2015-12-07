@@ -159,6 +159,7 @@
 		<tr>
 			<td colspan="4">
 				<button class="btn" id="btn-pagar">Pagar</button>
+				<input type="hidden" name="_token" value="{{csrf_token()}}" id="Token">
 			</td>
 		</tr>
 	</table>

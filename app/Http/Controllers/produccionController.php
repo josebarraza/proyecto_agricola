@@ -10,7 +10,7 @@ use Agricola\Pais;
 use Agricola\Producto;
 use Agricola\Produccion;
 use Agricola\Almacen;
-use Agricola\inventario;
+use Agricola\Inventario;
 use Session;
 use Redirect;
 

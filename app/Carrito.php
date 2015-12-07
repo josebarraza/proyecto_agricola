@@ -12,6 +12,7 @@ class Carrito extends Model
     public function lineasCarrito(){
         return $this->hasMany('Agricola\LineaCarrito','id_carrito');
     }
+    
     public function totalCarrito(){
         $total = 0;
         foreach($this->lineasCarrito as $index => $linea){

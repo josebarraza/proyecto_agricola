@@ -36,16 +36,14 @@ class catBodegaController extends Controller
     public function edit($id)
     {
        
-        
-        //Bodega a rentar
-        $bodega =  Bodega::find($id);
-
-         //Cliente rentando
-        // Auth::user();
+    
         DB::beginTransaction();
+
+        //Bode a rentar, el primero que la obtenga bloquea a los demas.
+         DB::table('bodegas')->where('id', '=',$id)->lockForUpdate()->get();
+         $bodega = Bodega::find($id);
             if($bodega->status!=2){
                 //Nueva renta 
-                DB::table('bodegas')->where('id', '=',$id)->lockForUpdate()->get();
                 $renta = new Renta();
                 $bodega->status = 2; //Cambio de status a rentada
                 $renta->bodega_id  = $bodega->id;

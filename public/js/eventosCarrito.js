@@ -39,7 +39,13 @@ var main = function(){
 			type:'PUT',
 			dataType:'json',
 			success:function(response){
-				if(response){
+				if(response.mensaje){
+					alertify
+  					.alert("Alerta: "+response.mensaje+"<br>"+"Producto: "+response.producto.nombre+"<br>Cantidad disponible: "+response.cantidad+" costales", function(){
+   					
+  				});
+				}
+				else{
 					var cajas = $('#tabla-carrito').find('.span-subtotal');
 					var sub = 0;	
 					cajas.each(function(i){
