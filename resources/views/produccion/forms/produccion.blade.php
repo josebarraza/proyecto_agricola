@@ -10,8 +10,7 @@
 
 		<!--FECHA COSECHA-->
 	    {!! Form::label('lblfechacosecha', 'Fecha de cosecha:',['class'=>'ml']) !!}
-	    {!! Form::number('aniocosecha', null, ['class' => 'small' ,'placeholder'=>'Año','min'=>2014,'step'=>'any']) !!}
-	    {!! Form::number('mescosecha', null, ['class' => 'small' ,'placeholder'=>'Mes','min'=>1,'step'=>'any']) !!}
+	   {!! Form::date('fechacosecha', \Carbon\Carbon::now(), ['class' => 'small']) !!}
 	</div>
 	<br>
 	

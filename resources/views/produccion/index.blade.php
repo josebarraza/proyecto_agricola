@@ -1,5 +1,6 @@
-@extends('plantillas.admin')
+ @extends('plantillas.admin')
 @section('content')
+@include('alertas.exito');
 <div class="panel panel-default lista-recursos">
   	<div class="panel-heading centrar-texto">
   		<span> <strong>Lista de Producciones</strong></span>
@@ -10,7 +11,7 @@
 		<thead>
 			<tr>
 				<th>Producto</th>
-				<th>Cosecha (MM/AAAA)</th>
+				<th>Cosecha (AAAA/MM/DD)</th>
 				<th>Cantidad<br>(costales)</th>
 				<th>Costo (PESOS)</th>
 				<th>Origen</th>
@@ -20,10 +21,11 @@
 			</tr>
 		</thead>
 		<tbody>
+
 		@foreach($producciones as $produccion)
 			<tr>
 				<td>{{$produccion->inventario->producto->nombre}} </td>
-				<td>{{$produccion->inventario->aniocosecha}}/{{$produccion->inventario->mescosecha}}</td>
+				<td>{{$produccion->inventario->fechacosecha}}</td>
 				<td>{{$produccion->cantidad}}</td>
 				<td>{{$produccion->precio}}</td>
 				<td>{{$produccion->ciudad['ciudad']}}, {{$produccion->ciudad->estado['estado']}}, {{$produccion->ciudad->estado->pais['pais']}} </td>

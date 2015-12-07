@@ -231,7 +231,7 @@ nav ul li {
 }
 .form-bodega{
 	margin: 0 auto;
-	width: 65%;
+	width: 80%;
 }
 
 .centrar-texto{
@@ -274,13 +274,13 @@ nav ul li {
 }
 .form-almacen{
 	margin: 5% 10%;
-	width: 65%;
+	width: 80%;
 }
 .ml{
 	margin-left: 50px;
 }
 .small{
-	width: 80px;
+	width: 150px;
 	padding: 6px 12px;
 	font-size: 14px;
 	line-height: 1.42857143;

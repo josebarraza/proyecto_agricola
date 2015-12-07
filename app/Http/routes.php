@@ -35,7 +35,7 @@ Route::resource('product','productoController');
 Route::resource('catProductos','catProductoController');
 Route::resource('carrito','carritoController');
 Route::get('carritos/eliminarTodas','carritoController@eliminarTodas');
-Route::resource('compras','comprasController');
+Route::resource('compra','comprasController');
 Route::resource('almacen','almacenController');
 Route::resource('produccion','produccionController');
 
