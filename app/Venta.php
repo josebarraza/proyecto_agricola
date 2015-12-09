@@ -32,4 +32,8 @@ class Venta extends Model
     public function address(){
         return $this->belongsTo('Agricola\Address','address_id');
     }
+
+    public function cliente(){
+        return $this->belongsTo('Agricola\User','user_id');
+    }
 }

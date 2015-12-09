@@ -191,10 +191,10 @@ var main = function(){
 						$("#txtColonia").val(response.direccion.colonia);
 						$("#txtCp").val(response.direccion.cp);
 						$("#pais").val(response.pais);
-						$("#estado").val(response.estado);
 						cambioPais(response.pais);
-						
+						$("#estado").val(response.estado);
 						cambioEstado(response.estado);
+						$("#ciudad").val(response.ciudad);
 						$("#tabla-direccion").show();
 					}
 				}

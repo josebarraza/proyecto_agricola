@@ -5,6 +5,7 @@ namespace Agricola\Http\Controllers;
 use Illuminate\Http\Request;
 use Agricola\User;
 use Agricola\Carrito;
+use Agricola\Card;
 use Agricola\Http\Requests;
 use Agricola\Http\Requests\UserCreateRequest;
 use Agricola\Http\Requests\UserUpdateRequest;
@@ -42,10 +43,13 @@ class userController extends Controller
         $usuario->email        = $request['email'];
         $usuario->password     = $request['password'];
         $carrito = new Carrito();
+        $card = new Card();
         if($request['tipo']==null){ //Cliente registrándose
             $usuario->tipo = 1; 
             $usuario->save();
             $carrito->user_id = $usuario->id;
+            $card->user_id = $usuario->id;
+            $card->save();
             $carrito->save();
             Auth::attempt(['email'=>$request->email,'password'=>$request->password]);
             return Redirect::back();
@@ -55,6 +59,8 @@ class userController extends Controller
         $usuario->save();
         $carrito->user_id = $usuario->id;
         $carrito->save();
+        $card->user_id = $usuario->id;
+        $card->save();
         Session::flash('message','Usuario creado corréctamente');
         return Redirect::to('/user');
         

@@ -20,7 +20,7 @@
 	    	<div class="form-inline">
 	    	<label >Lugar de origen:</label>
 		        <select name="pais" id="pais" class="form-control">
-		        	<option value="">Pais</option>
+		        	<option value="">País</option>
 		        	@foreach($paises as $pais)
 						<option value="{{$pais->id}}">{{$pais->pais}}</option>
 		        	@endforeach
@@ -36,9 +36,9 @@
 	    </div>
 		<div class="form-inline">
 			
-	  	<label >Destino:</label>
+	  	<label >Almacén destino:</label>
 		        <select name="almacen" id="almacen" class="form-control">
-		        	<option value="">Almacen destino</option>
+		        	<option value="">Almacén destino</option>
 		        	@foreach($almacenes as $almacen)
 						<option value="{{$almacen->id}}">{{$almacen->nombre}}</option>
 		        	@endforeach
@@ -52,7 +52,7 @@
 		{!! Form::label('lblcosto', 'Costo de Producción: $',['class' => '']) !!}
 	    {!! Form::number('costo', null, ['class' => 'small' ,'placeholder'=>'MN','min'=>1,'step'=>'any']) !!}
 		<br>
-		{!! Form::label('lblcaracteristicas', 'Caracteristicas del producto:') !!}
+		{!! Form::label('lblcaracteristicas', 'Características del producto:') !!}
 	    {!! Form::text('caracteristicas', null, ['class' => 'form-control','placeholder'=>'Caracteristicas del producto cosechado. ']) !!}
 		<br>
 		{!! Form::label('lbldificultades', 'Dificultades durante la cosecha:') !!}

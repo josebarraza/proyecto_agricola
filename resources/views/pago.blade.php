@@ -14,7 +14,7 @@
 		    </div>
 		    <!-- numero -->
 		    <div class="form-group">
-		        {!! Form::label('lblmat', 'Numero de tarjeta:') !!}
+		        {!! Form::label('lblmat', 'Número de tarjeta:') !!}
 		        {!! Form::number('numero', null, ['class' => 'form-control']) !!}
 		    </div>
 		    <!-- fecha -->

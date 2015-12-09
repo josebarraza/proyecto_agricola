@@ -8,6 +8,7 @@
 	    	{!!Form::label('Tipo de usuario:')!!} <br>
 	    	<label class="radio-inline"><input checked="checked" type="radio" value='2' name="tipo">Administrador</label>
 			<label class="radio-inline"><input type="radio" value='1' name="tipo">Cliente</label>
+			<label class="radio-inline"><input type="radio" value='3' name="tipo">Depto. Exportación</label>
 	    </div>
 	        {!! Form::submit("Guardar ", ['class' => 'btn btn-success btn-block '])!!}
 		{!! Form::close() !!}

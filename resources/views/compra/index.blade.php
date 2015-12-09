@@ -14,7 +14,7 @@
 				<th>Cantidad<br>(costales)</th>
 				<th>Costo (PESOS)</th>
 				<th>Origen</th>
-				<th>Almacen destino</th>
+				<th>Almacén destino</th>
 				<th>Proveedor</th>
 				<th>Status de certificación</th>
 			</tr>

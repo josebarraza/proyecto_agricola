@@ -36,7 +36,7 @@
 	  	</div>
 	</div>
 	<div class="form-inline">
-	  	<label >Almacen destino:</label>
+	  	<label >Almacén destino:</label>
 		        <select name="almacen" id="almacen" class="form-control">
 		        	@foreach($almacenes as $almacen)
 						<option value="{{$almacen->id}}">{{$almacen->nombre}}</option>
@@ -47,5 +47,5 @@
 		</div>
 	<br>	
 	<!--COSTO-->
-	{!! Form::label('lblcosto', 'Costo de Producción(pesos): $',['class' => '']) !!}
+	{!! Form::label('lblcosto', 'Costo de compra(pesos): $',['class' => '']) !!}
 	{!! Form::number('costo', null, ['class' => 'small' ,'placeholder'=>'MN','min'=>1,'step'=>'any']) !!}

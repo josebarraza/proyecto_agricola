@@ -590,6 +590,7 @@ return array(
     'Page_Frame_Decorator' => $vendorDir . '/dompdf/dompdf/include/page_frame_decorator.cls.php',
     'Page_Frame_Reflower' => $vendorDir . '/dompdf/dompdf/include/page_frame_reflower.cls.php',
     'Paises' => $baseDir . '/database/seeds/Paises.php',
+    'PedimentoVenta' => $baseDir . '/database/migrations/2015_12_08_024532_pedimento_venta.php',
     'PonerCampoAddressIdAVenta' => $baseDir . '/database/migrations/2015_12_07_055622_poner_campo_address_id_a_venta.php',
     'Positioner' => $vendorDir . '/dompdf/dompdf/include/positioner.cls.php',
     'Producciones' => $baseDir . '/database/migrations/2015_12_04_034251_producciones.php',

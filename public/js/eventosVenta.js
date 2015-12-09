@@ -59,10 +59,9 @@ var procesoVenta = function(){
 				
    				eliminarLineasCarrito();
    				alertify
- 				 .alert("Tu compra se ah efectuado con éxito. <br> <a href='/misCompras'>Mis compras </a>");
+ 				 .alert("Tu compra se ha efectuado con éxito. <br> <a href='/misCompras'>Mis compras </a>");
    				$("#section-pedido").hide();
-   				
-  				
+   				$("#section-success-compra").show();
 			}
 		}
 	});
@@ -77,11 +76,6 @@ var eliminarLineasCarrito = function(){
 		  			}
 		  		});
 }
-
-
-
-
-
 
 
 $("#btn-pagar").on('click',procesoVenta);

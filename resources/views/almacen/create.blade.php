@@ -1,6 +1,6 @@
 @extends('plantillas.admin')
 @section('content')
-	<span class="letra-grande ">Registro de Almacen</span>
+	<span class="letra-grande ">Registro de Almacén</span>
 <div class="form-almacen">
 	{!! Form::open(['route' => 'almacen.store','method'=>'POST','files'=>true]) !!}
 	   	@include('almacen.forms.almacen')

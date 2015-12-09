@@ -17,7 +17,7 @@ use Auth;
 
 class ventaController extends Controller
 {
-    
+   
     
     public function createVenta(Request $request)
     {
@@ -37,13 +37,20 @@ class ventaController extends Controller
        		$venta->address_id = $address->id;	
 
        	}
-       	//
+       	//Ingreso una dirección existente
        	else{
        		$venta->address_id = $request->direccion;
        		
        	}
 
        	$venta->user_id = Auth::user()->id;
+
+        if(strcmp($venta->address->ciudad->estado->pais->pais,'México') == 0)
+          $venta->pedimento = "mx";
+        else
+          $venta->pedimento = "pendiente";
+
+        
        	$venta->save();//Se graba la instancia de venta
 
        	
@@ -90,9 +97,10 @@ class ventaController extends Controller
     }
 
     public function PEPS($linea){
-    	$total = 0;
+    	$total = 0;//variable auxiliar
        		while($total != $linea->cantidad){
 
+            //consulta que regresa del inv la cosecha mas vieja
        			$oldInv = DB::table('inventarios')
        					->where('status','>=',3)
        						->where('cantidad','>',0)
@@ -117,6 +125,7 @@ class ventaController extends Controller
       $venta = Venta::find($id);
       return $venta->imprimePDF();
     }
+    
     
 
     

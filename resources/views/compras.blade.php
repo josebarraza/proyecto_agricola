@@ -5,9 +5,13 @@
 			width: 80%;
 			margin: 0 auto;
 		}
+		#section-compras-cliente{
+			margin-top: -90px;
+		}
 	</style>
 
-	<section>
+	<section id="section-compras-cliente">
+	@include('alertas.exito');
 		
 		@if(count($compras)>0)
 		<table id="tabla-compras" class="table">
@@ -35,5 +39,7 @@
 			<br>
 			<a class="btn btn-add"href="/catProductos">ver produtos</a>
 		@endif
+		{!!$compras!!}
 	</section>
+
 @stop()

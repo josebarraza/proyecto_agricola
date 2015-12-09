@@ -38,18 +38,24 @@ class comprasController extends Controller
     public function store(Request $request)
     {
         $almacen=Almacen::find($request->almacen);
-        if(($almacen->stock + $request->cantidad ) > $almacen->capacidad){
+        if(!($almacen->verificaCapacidad($request->cantidad))){
             Session::flash('message','No existe espacio suficiente en el almacen, intenta con otro.');
             return Redirect::to('compra');
         }
 
-        $almacen->stock= $almacen->stock+$request->cantidad;
-        $almacen->save();
+        $almacen->actualizaStock($request->cantidad);
 
         $inventario = new Inventario();
         $inventario->fechacosecha=$request->fechacosecha;
         $inventario->cantidad=$request->cantidad;
-        $inventario->status=0;
+        $pais=Pais::find($request->pais);
+        
+        if(strcmp($pais->pais,'México')!==0){
+            $inventario->status=0;
+        }else{
+            $inventario->status=4;
+        }
+        
         $inventario->id_producto=$request->producto;
         $inventario->id_almacen=$request->almacen;
         $inventario->save();
@@ -66,48 +72,4 @@ class comprasController extends Controller
         return Redirect::to('compra');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

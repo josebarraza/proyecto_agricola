@@ -39,7 +39,7 @@ class FrontController extends Controller
    }
 
    public function compras(){
-    $compras = Venta::where('user_id',Auth::user()->id)->get();
+    $compras = Venta::where('user_id',Auth::user()->id)->paginate(8);
     return view('compras',compact('compras'));
    }
 

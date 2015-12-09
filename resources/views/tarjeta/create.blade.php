@@ -10,12 +10,12 @@
 	    </div>
 	    <!-- numero -->
 	    <div class="form-group">
-	        {!! Form::label('lblmat', 'Numero de tarjeta:') !!}
+	        {!! Form::label('lblmat', 'Número de tarjeta:') !!}
 	        {!! Form::number('numero', null, ['class' => 'form-control']) !!}
 	    </div>
 	    <!-- mes -->
 	    <div class="form-group">
-	        {!! Form::label('lblmat', 'Més de vencimiento:') !!}
+	        {!! Form::label('lblmat', 'Mes de vencimiento:') !!}
 	        {!! Form::selectMonth('fecha', null, ['class' => 'form-control']) !!}
 	    </div>
 	    <!-- año -->

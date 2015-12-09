@@ -23,8 +23,10 @@
 				<td>{{$user -> email}}</td>
 				@if($user->tipo == 1)
 					<td>Cliente</td>
-				@else
+				@elseif($user->tipo==2)
 					<td>Administrador</td>
+				@else
+					<td>Depto. Exportación</td>	
 				@endif		
 				<td>{!! link_to_route('user.edit' , $title = 'Editar' , $parameters = $user->id, $attributes = ['class' => 'btn btn-primary']) !!}</td>
 			</tr>

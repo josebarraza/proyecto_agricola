@@ -1,6 +1,6 @@
 	<!--NOMBRE-->
 	<div class="form-group">
-	    {!! Form::label('lblname', 'Nombre del almacen:') !!}
+	    {!! Form::label('lblname', 'Nombre del almacén:') !!}
 	    {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
 	</div>
 	<!-- UBICACION  -->
@@ -8,7 +8,7 @@
 	    	<label for="">Ubicación:</label>
 	    	<div class="form-inline">
 		        <select name="pais" id="pais" class="form-control">
-		        	<option value="">Pais</option>
+		        	<option value="">País</option>
 		        	@foreach($paises as $pais)
 						<option value="{{$pais->id}}">{{$pais->pais}}</option>
 		        	@endforeach

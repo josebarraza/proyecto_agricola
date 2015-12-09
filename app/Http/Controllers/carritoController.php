@@ -30,12 +30,6 @@ class carritoController extends Controller
     }
 
     
-    public function create()
-    {
-        
-    }
-
-    
     public function store(Request $request)
     {
         //Lineas del cliente
@@ -52,18 +46,6 @@ class carritoController extends Controller
        $lineaCarrito->save();
        return response()->json(['mensaje' => 'Producto añadido al carrito','grabo'=>true]);
             
-    }
-
-    
-    public function show($id)
-    {
-        
-    }
-
-    
-    public function edit($data)
-    {
-       
     }
 
     

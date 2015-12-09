@@ -53,6 +53,11 @@
 		background-color:  #0F9CD0;
 		height: 5px;
 	}
+	#section-success-compra{
+		display: none;
+		width: 70%;
+		margin: 0 auto;
+	}
 	
 </style>
 
@@ -85,7 +90,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Esatdo</td>
+					<td>Estado</td>
 					<td>
 						<select id="estado"  class="form-control "></select>
 					</td>
@@ -215,12 +220,15 @@
 		</table>
 	</div>
 </div>
-
-
-
-
-
 </section>
+
+<section id="section-success-compra">
+		<h3>Gracias por tu compra</h3>
+		<br>
+		<p> <strong> Si tienes alguna duda sobre tu compra puedes <a href="/contacto">contactarnos</a>.</strong></p>
+		<p><strong>Ver <a href="/misCompras">mis compras</a>.</strong></p>
+</section>
+
 
 
 @stop

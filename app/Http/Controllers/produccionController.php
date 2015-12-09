@@ -40,13 +40,12 @@ class produccionController extends Controller
     public function store(Request $request)
     {
         $almacen=Almacen::find($request->almacen);
-        if(($almacen->stock + $request->cantidad ) > $almacen->capacidad){
+        if(!($almacen->verificaCapacidad($request->cantidad))){
             Session::flash('message','No hay suficiente espacio en el almacen.');
             return view('produccion');
         }
 
-        $almacen->stock= $almacen->stock+$request->cantidad;
-        $almacen->save();
+        $almacen->actualizaStock($request->cantidad);
 
         $inventario = new Inventario();
         $inventario->fechacosecha=$request->fechacosecha;

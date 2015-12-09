@@ -15,8 +15,8 @@
 				<th>Cantidad<br>(costales)</th>
 				<th>Costo (PESOS)</th>
 				<th>Origen</th>
-				<th>Almacen destino</th>
-				<th>Caracteristicas</th>
+				<th>Almacén destino</th>
+				<th>Características</th>
 				<th>Dificultades</th>
 			</tr>
 		</thead>
@@ -40,4 +40,4 @@
  	<span class="letra-grande">No hay producciones registradas.</span>
  	@endif
 </div>	
-@stop
+@stop>
